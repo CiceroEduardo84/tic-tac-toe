@@ -1,32 +1,48 @@
 header {
   width: 100%;
-  padding: 1.6rem 1.6rem 1.6rem;
+  padding: 1.4rem 2rem 1.4rem;
   color: var(--var-font-color);
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
 
-.containerTitle {
-  width: 100%;
+.exit {
+  width: 4rem;
+  font-size: 1.8rem;
 }
 
-.boxTitle {
-  max-width: 80%;
-  background-color: red;
-  margin: auto;
+.containerTitle {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap:1rem;
 }
 
 .boxTitle h1 {
   font-size: 3.2rem;
   font-weight: 700;
+  text-shadow: 4px 4px 10px var(--var-bg-shadow-black), -4px -4px 10px var(--var-bg-shadow-white);
   text-align: center;
   word-wrap: break-word;
 }
 
 .boxInformation {
-  width: 80%;
-  background-color: green;
+  width: 100%;
   display: flex;
-  flex-direction: inherit;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.boxInformation div {
+  width: 60%;
+  text-align: left;
+}
+
+div .time {
+  width: 40%;
+  text-align: right;
 }

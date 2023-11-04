@@ -1,6 +1,9 @@
 .dark-mode {
-  --var-bg-color: #737373;
   --var-font-color: #f2f2f2;
+  --var-bg-color: #737373;
+  
+  --var-bg-shadow-white: rgba(191, 191, 191, 0.5);
+  --var-bg-shadow-black: rgba(0, 0, 0,0.25);
 }
 
 body {
