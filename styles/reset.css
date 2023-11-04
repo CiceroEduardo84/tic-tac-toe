@@ -1,0 +1,15 @@
+:root{
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6 rem;
+  font-family:'Pixelify Sans',Arial, sans-serif;
+}

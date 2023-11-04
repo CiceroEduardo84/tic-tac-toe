@@ -1,0 +1,32 @@
+header {
+  width: 100%;
+  padding: 1.6rem 1.6rem 1.6rem;
+  color: var(--var-font-color);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.containerTitle {
+  width: 100%;
+}
+
+.boxTitle {
+  max-width: 80%;
+  background-color: red;
+  margin: auto;
+}
+
+.boxTitle h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.boxInformation {
+  width: 80%;
+  background-color: green;
+  display: flex;
+  flex-direction: inherit;
+}

@@ -1,0 +1,8 @@
+.dark-mode {
+  --var-bg-color: #737373;
+  --var-font-color: #f2f2f2;
+}
+
+body {
+  background: var(--var-bg-color);
+}
