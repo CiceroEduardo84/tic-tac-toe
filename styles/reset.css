@@ -9,7 +9,18 @@
   box-sizing: border-box;
 }
 
+.dark-mode {
+  --var-font-color: #f2f2f2;
+  --var-bg-color-footer:#D9D9D9;
+  --var-bg-color: #737373;
+  
+  --var-bg-shadow-white: rgba(191, 191, 191, 0.5);
+  --var-bg-color-footer: rgba(217, 217, 217, 0.3);
+  --var-bg-shadow-black: rgba(0, 0, 0,0.25);
+}
+
 body {
   font-size: 1.6rem;
   font-family:'Pixelify Sans',Arial, sans-serif;
+  background: var(--var-bg-color);
 }
