@@ -21,6 +21,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="styles/index.css" />
+    <script src="./scripts/script.js" defer></script>
   </head>
   <body>
     <header>
@@ -95,20 +96,21 @@
               <span>Ranque</span>
             </div>
 
-            <div id="boxSwitch">
-              <button></button>
-              <span></span>
+            <div class="boxSwitch">
+              <div id="switch" onclick="toggleMode()">
+                <button></button>
+                <span></span>
+              </div>
             </div>
           </div>
 
           <div class="boxPlayersName">
-            <input type="text" class="player playerOne" />
-            <span>X</span>
-            <input type="text" class="player playerTwo" />
-          </div>
-
-          <div class="BoxInit">
-            <button class="init">Começar</button>
+            <form action="#">
+              <input type="text" class="player" placeholder="Player 1" />
+              <span>X</span>
+              <input type="text" class="player" placeholder="Player 2" />
+              <button class="init">Jogar</button>
+            </form>
           </div>
         </section>
       </article>

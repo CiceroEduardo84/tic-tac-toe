@@ -2,19 +2,13 @@ main {
   width: 100%;
   padding: 2rem 2rem 2rem;
   color: var(--var-font-color);
-  position: relative;
-  z-index: 1;
-}
-
-article{
-  display: flex;
 }
 
 /* line to game */
 .containerGame {
   max-width: 40rem;
   margin: auto;
-  display: flex;
+  display: none; /*remove none, add flex*/
   justify-content: center;
   align-items: center;
 }
@@ -44,7 +38,7 @@ article{
   height: 1rem;
   background-color: var(--var-bg-color-footer);
   border-radius: 1rem;
-  box-shadow: 0px 4px 4px var(--var-bg-shadow-black);
+  box-shadow: 0px 4px 2px var(--var-bg-shadow-black) inset;
 }
 
 .boxLinesVertical div {
@@ -52,7 +46,7 @@ article{
   height: 25rem;
   border-radius: 1rem;
   background-color: var(--var-bg-color-footer);
-  box-shadow: 0px 4px 4px var(--var-bg-shadow-black);
+  box-shadow: 2px 4px 2px var(--var-bg-shadow-black) inset;
 }
 
 /* game handles */
@@ -76,36 +70,50 @@ td img {
 /* Start */
 .containerInitialize {
   max-width: 40rem;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
+  display: flex; /*remove none, add flex*/
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin: auto;
+  padding: 1rem;
+  gap: 4rem;
   background-color: var(--var-bg-color-init);
-  z-index: 5;
 }
 
-.boxHeader{
+.boxHeader {
   width: 100%;
   display: flex;
 }
 
-.boxHeader div{
-  font-size: clamp(1.6rem, 2.5vw, 2rem);
-  width: 50%;
+.boxHeader div {
+  font-size: clamp(1.8rem, 2.5vw, 20.2s);
 }
 
+.boxRanque {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.boxRanque img {
+  width: clamp(2rem, 2.5vw, 2.4rem);
+}
+
+.boxSwitch {
+  width: 50%;
+  position: relative;
+}
 
 /* Switch */
 #switch {
-  width: 64px;
   position: absolute;
-  margin: 4px auto;
+  right: 0;
 }
 
 #switch button {
-  width: 32px;
-  height: 32px;
+  width: 2.8rem;
+  height: 2.8rem;
   position: absolute;
   top: 50%;
   left: 0;
@@ -113,11 +121,11 @@ td img {
   border: 0;
   border-radius: 50%;
   transform: translateY(-50%);
-  z-index: 10;
-  animation: slide-back 0.2s;
+  z-index: 1;
+  animation: slide-in 0.2s;
 }
 
-.light #switch button {
+.light-mode #switch button {
   animation: slide-in 0.2s forwards;
 }
 
@@ -127,11 +135,60 @@ td img {
 
 #switch span {
   display: block;
-  width: 64px;
-  height: 24px;
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 9999px;
+  width: 5.8rem;
+  height: 2rem;
+  border: 2px solid var(--var-bg-color);
+  border-radius: 10px;
+  background: var(--var-bg-color-init);
+  box-shadow: inset 4px 4px 8px var(--var-bg-color),
+    inset -4px -4px 4px var(--var-bg-shadow-black);
+}
+
+/* PLayers */
+.boxPlayer {
+  width: 100%;
+}
+
+form {
+  width: 100%;
+  text-align: center;
+  margin: 0rem 0rem 2rem;
+}
+
+form span {
+  padding: 1rem;
+}
+
+.player {
+  width: 40%;
+  color: var(--var-font-color);
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 2px var(--var-font-color);
+}
+
+.player::placeholder {
+  color: var(--var-font-color);
+  font-family: "Pixelify Sans", Arial, sans-serif;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.player:focus {
+  outline: none;
+  color: var(--var-font-color);
+}
+
+form .init {
+  width: 14.8rem;
+  height: 2.8rem;
+  margin: 4rem 0rem 1rem;
+  color: var(--var-font-color);
+  font-family: "Pixelify Sans", Arial, sans-serif;
+  font-size: 16px;
+  background-color: transparent;
+  border: 10px;
+  box-shadow: 7px 7px 10px var(--var-bg-shadow-black),
+              -7px -7px 10px var( --var-bg-color);
 }
