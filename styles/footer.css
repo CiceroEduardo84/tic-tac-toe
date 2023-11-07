@@ -1,4 +1,4 @@
-/* footer{
+footer{
   width: 100%;
   padding: 1.4rem 2rem 1.4rem;
   color: var(--var-font-color);
@@ -8,7 +8,7 @@
 
 .copyright {
   max-width: 48rem;
-  font-size: clamp(1.6rem, 2.5vw, 2rem);;
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
   margin: auto;
   background: var(--var-bg-shadow-footer,0.3);
   border-radius: 0.6rem;
@@ -20,4 +20,4 @@
   text-align: center;
   text-decoration: none;
   color: var(--var-font-color);
-} */
+}

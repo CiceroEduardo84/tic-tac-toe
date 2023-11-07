@@ -6,6 +6,10 @@ main {
   z-index: 1;
 }
 
+article{
+  display: flex;
+}
+
 /* line to game */
 .containerGame {
   max-width: 40rem;
@@ -72,16 +76,22 @@ td img {
 /* Start */
 .containerInitialize {
   max-width: 40rem;
-  margin: auto;
-  display: none;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: var(--var-bg-color-init);
+  z-index: 5;
 }
 
-.boxFunctions{
+.boxHeader{
   width: 100%;
+  display: flex;
 }
 
-.ranque{
+.boxHeader div{
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
   width: 50%;
 }
 
@@ -89,7 +99,7 @@ td img {
 /* Switch */
 #switch {
   width: 64px;
-  position: relative;
+  position: absolute;
   margin: 4px auto;
 }
 
@@ -103,7 +113,7 @@ td img {
   border: 0;
   border-radius: 50%;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 10;
   animation: slide-back 0.2s;
 }
 

@@ -7,6 +7,7 @@ header {
 }
 
 .exit {
+  display: none; 
   width: 4rem;
   font-size: clamp(1.8rem, 2.5vw, 2.2rem);
 }
@@ -31,7 +32,7 @@ header {
 
 .boxInformation {
   width: 100%;
-  display: flex;
+  display: none;
   text-align: center;
   font-size: clamp(2rem, 2.5vw, 2.4rem);
   font-weight: 700;
