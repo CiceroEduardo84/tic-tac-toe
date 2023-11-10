@@ -9,17 +9,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
     <title>Tic Tac Toe</title>
-    <link
-      rel="shortcut icon"
-      href="./images/jogo-da-velha.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="./images/jogo-da-velha.png" type="image/x-icon"/>
     <link rel="stylesheet" href="styles/index.css" />
     <script src="./scripts/script.js" defer></script>
   </head>
@@ -43,52 +36,6 @@
 
     <main>
       <article>
-        <section class="containerGame">
-          <div class="boxLines">
-            <div class="boxLinesHorizontal">
-              <div class="lineHorizontal"></div>
-              <div class="lineHorizontal"></div>
-            </div>
-
-            <div class="boxLinesVertical">
-              <div class="lineVertical"></div>
-              <div class="lineVertical"></div>
-            </div>
-          </div>
-
-          <div class="boxParts">
-            <table>
-              <thead>
-                <tr>
-                  <td>
-                    <img src="./images/Xis-darckMode.svg" alt="" />
-                  </td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td>
-                    <img src="./images/Bolinha-darckMode.svg" alt="" />
-                  </td>
-                  <td></td>
-                </tr>
-              </tbody>
-
-              <tfoot>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-        </section>
-
         <section class="containerInitialize">
           <div class="boxHeader">
             <div class="boxRanque">
@@ -116,7 +63,7 @@
 
         <section class="containerRanque">
           <div class="boxTitleRanquePlayers">
-            <table class="tableRanque">
+            <table border="1" class="tableRanque">
               <thead>
                 <tr>
                   <th>N°</th>
@@ -133,54 +80,59 @@
                 <tr>
                   <td>1°</td>
                   <td>Jogador</td>
-                  <td>Vitórias</td>
-                </tr>
-                <tr>
-                  <td>1°</td>
-                  <td>Jogador</td>
-                  <td>Vitórias</td>
-                </tr>
-                <tr>
-                  <td>1°</td>
-                  <td>Jogador</td>
-                  <td>Vitórias</td>
-                </tr>
-                <tr>
-                  <td>1°</td>
-                  <td>Jogador</td>
-                  <td>Vitórias</td>
-                </tr>
-                <tr>
-                  <td>1°</td>
-                  <td>Jogador</td>
-                  <td>Vitórias</td>
-                </tr>
-                <tr>
-                  <td>1°</td>
-                  <td>Jogador</td>
-                  <td>Vitórias</td>
-                </tr>
-                <tr>
-                  <td>1°</td>
-                  <td>Jogador</td>
-                  <td>Vitórias</td>
-                </tr>
-                <tr>
-                  <td>1°</td>
-                  <td>Jogador</td>
-                  <td>Vitórias</td>
-                </tr>
-                <tr>
-                  <td>1°</td>
-                  <td>Jogador</td>
-                  <td>Vitórias</td>
-                </tr>
-                <tr>
-                  <td>1°</td>
-                  <td>Jogador</td>
-                  <td>Vitórias</td>
+                  <td>10</td>
                 </tr>
               </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="containerGame">
+          <div class="boxLines">
+            <div class="boxLinesHorizontal">
+              <div class="lineHorizontal"></div>
+              <div class="lineHorizontal"></div>
+            </div>
+
+            <div class="boxLinesVertical">
+              <div class="lineVertical"></div>
+              <div class="lineVertical"></div>
+            </div>
+          </div>
+
+          <div class="boxParts">
+            <table class="tableParts">
+              <thead>
+                <tr>
+                  <td>
+                    <img src="./images/Xis-darckMode.svg" alt="" class="part" />
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>
+                    <img
+                      src="./images/Bolinha-darckMode.svg"
+                      alt=""
+                      class="part"
+                    />
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+
+              <tfoot>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tfoot>
             </table>
           </div>
         </section>
