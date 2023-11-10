@@ -24,7 +24,7 @@ main {
 }
 
 .boxHeader div {
-  font-size: clamp(1.8rem, 2.5vw, 20.2s);
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
 }
 
 .boxRanque {
@@ -124,7 +124,7 @@ form .init {
   margin: 5rem 0rem 1rem;
   color: var(--var-font-color);
   font-family: "Pixelify Sans", Arial, sans-serif;
-  font-size: 16px;
+  font-size: 1.6rem;
   background-color: transparent;
   border: 0;
   border-radius: 10px;
@@ -135,7 +135,7 @@ form .init {
 /* Ranque */
 .containerRanque {
   max-width: 40rem;
-  display: none; /*remove display flex*/
+  display: none;/*remove display flex*/
   margin: auto;
   padding: 1rem;
   background-color: var(--var-bg-color-init);
@@ -153,7 +153,8 @@ form .init {
   overflow: auto;
 }
 
-.boxTitleRanquePlayers table,.boxRanquePlayers table {
+.boxTitleRanquePlayers table,
+.boxRanquePlayers table {
   width: 100%;
   margin: auto;
   text-align: center;
@@ -163,15 +164,16 @@ form .init {
   display: none;
 }
 
-.tableRanque{
+.tableRanque {
   border-collapse: collapse;
 }
 
-.tableRanque tr th{
+.tableRanque tr th {
   background-color: var(--var-bg-color);
 }
 
-.tableRanque tr td, .tableRanque tr th{
+.tableRanque tr td,
+.tableRanque tr th {
   width: 33%;
 }
 
@@ -238,7 +240,57 @@ form .init {
   width: 70%;
 }
 
-@media (min-width: 768px) {}
-@media (min-width: 1024px) {}
-@media (min-width: 1440px) {}
-@media (min-width: 2560px) {}
+@media (min-width: 768px) {
+  .containerInitialize {
+    padding: 2rem;
+  }
+
+  .boxHeader div {
+    font-size: clamp(2rem, 2.5vw, 2.2rem);
+  }
+
+  form .init {
+    width: 15rem;
+    height: 3.2rem;
+    margin: 5rem 0rem 1rem;
+    font-size: 1.8rem;
+  }
+
+  .containerRanque {
+    max-width: 40rem;
+    padding: 1.6rem;
+  }
+
+  .boxRanquePlayers {
+    height: 22rem;
+  }
+  
+  .boxLinesHorizontal {
+    gap: 7rem;
+  }
+  
+  .boxLinesVertical {
+    gap: 7rem;
+  }
+  
+  .boxLinesHorizontal div {
+    width: 26rem;
+  }
+  
+  .boxLinesVertical div {
+    height: 26rem;
+  }
+  
+  .tableParts tr td {
+    height: 8.6rem;
+    width: 8.6rem;
+  }
+
+}
+
+@media (min-width: 1024px) {
+}
+@media (min-width: 1440px) {
+}
+@media (min-width: 2560px) {
+}

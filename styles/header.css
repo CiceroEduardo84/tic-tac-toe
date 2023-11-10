@@ -8,9 +8,9 @@ header {
 
 .exit { 
   display: flex; /*remove none, add flex*/
-  width: 4rem;
   position: absolute;
   font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  font-weight: 700;
   z-index: 2;
 }
 
@@ -33,7 +33,7 @@ header {
   width: 100%;
   margin: 1rem 0 0;
   position: absolute;
-  display: none; /*remove none, add flex*/
+  display: flex; /*remove none, add flex*/
   text-align: center;
   font-size: clamp(2rem, 2.5vw, 2.4rem);
   font-weight: 700;
@@ -48,7 +48,28 @@ div .time {
   width: 40%;
 }
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+
+  .exit { 
+    font-size: clamp(2rem, 2.5vw, 2.2rem);
+  }
+  
+  .containerTitle {
+    max-width: 30rem;
+    margin: 2.5rem auto 3rem;
+  }
+  
+  .boxTitle h1 {
+    font-size: clamp(3.2rem, 2.5vw, 3.6rem);
+  }
+  
+  .boxInformation {
+    width: 100%;
+    margin: 0 0 0;
+    font-size: clamp(2.2rem, 2.5vw, 2.6rem);
+  }
+
+}
 @media (min-width: 1024px) {}
 @media (min-width: 1440px) {}
 @media (min-width: 2560px) {}
