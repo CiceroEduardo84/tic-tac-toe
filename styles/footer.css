@@ -22,3 +22,8 @@ footer{
   text-decoration: none;
   color: var(--var-font-color);
 }
+
+@media (min-width: 768px) {}
+@media (min-width: 1024px) {}
+@media (min-width: 1440px) {}
+@media (min-width: 2560px) {}
