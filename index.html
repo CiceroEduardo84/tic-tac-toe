@@ -14,7 +14,7 @@
     <title>Tic Tac Toe</title>
     <link rel="shortcut icon" href="./images/jogo-da-velha.png" type="image/x-icon"/>
     <link rel="stylesheet" href="styles/index.css" />
-    <script src="./scripts/script.js" defer></script>
+    <script type="module" src="./scripts/index.js" defer></script>
   </head>
   <body>
     <header>
@@ -44,7 +44,7 @@
             </div>
 
             <div class="boxSwitch">
-              <div id="switch" onclick="toggleMode()">
+              <div id="switch">
                 <button></button>
                 <span></span>
               </div>
@@ -52,12 +52,10 @@
           </div>
 
           <div class="boxPlayersName">
-            <form action="#">
               <input type="text" class="player" placeholder="Player 1" />
               <span>X</span>
               <input type="text" class="player" placeholder="Player 2" />
               <button class="init">Jogar</button>
-            </form>
           </div>
         </section>
 

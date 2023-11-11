@@ -8,7 +8,7 @@ main {
 .containerInitialize {
   max-width: 40rem;
   height: 25rem;
-  display: none; /*remove none, add flex*/
+  display: flex; /*remove none, add flex*/
   justify-content: start;
   align-items: center;
   flex-direction: column;
@@ -83,17 +83,13 @@ main {
 }
 
 /* PLayers */
-.boxPlayer {
-  width: 100%;
-}
-
-form {
+.boxPlayersName {
   width: 100%;
   text-align: center;
   margin: 0rem 0rem 2rem;
 }
 
-form span {
+.boxPlayersName span {
   padding: 1rem;
 }
 
@@ -118,7 +114,7 @@ form span {
   color: var(--var-font-color);
 }
 
-form .init {
+.init {
   width: 14.8rem;
   height: 2.8rem;
   margin: 5rem 0rem 1rem;
@@ -181,7 +177,7 @@ form .init {
 .containerGame {
   max-width: 40rem;
   margin: auto;
-  display: flex; /*remove none, add flex*/
+  display: none; /*remove none, add flex*/
   justify-content: center;
   align-items: center;
 }
@@ -249,7 +245,7 @@ form .init {
     font-size: clamp(2rem, 2.5vw, 2.2rem);
   }
 
-  form .init {
+  .init {
     width: 15rem;
     height: 3.2rem;
     margin: 5rem 0rem 1rem;
@@ -295,11 +291,11 @@ form .init {
     gap: 6.8rem;
   }
 
-  form span {
+  .boxPlayersName span {
     padding: 1.6rem;
   }
 
-  form .init {
+  .init {
     width: 15.2rem;
     height: 3.2rem;
     font-size: 2rem;
