@@ -1,6 +1,6 @@
 main {
   width: 100%;
-  padding: 2rem 2rem 2rem;
+  padding: 2rem;
   color: var(--var-font-color);
 }
 
@@ -8,7 +8,7 @@ main {
 .containerInitialize {
   max-width: 40rem;
   height: 25rem;
-  display: flex; /*remove none, add flex*/
+  display: none; /*remove none, add flex*/
   justify-content: start;
   align-items: center;
   flex-direction: column;
@@ -100,7 +100,7 @@ form span {
 .player {
   width: 40%;
   color: var(--var-font-color);
-  font-size: 2rem;
+  font-size: clamp(2rem, 2.5vw, 2.2rem);
   background-color: transparent;
   border: none;
   border-bottom: solid 2px var(--var-font-color);
@@ -109,7 +109,7 @@ form span {
 .player::placeholder {
   color: var(--var-font-color);
   font-family: "Pixelify Sans", Arial, sans-serif;
-  font-size: 2rem;
+  font-size: clamp(2rem, 2.5vw, 2.2rem);
   text-align: center;
 }
 
@@ -181,7 +181,7 @@ form .init {
 .containerGame {
   max-width: 40rem;
   margin: auto;
-  display: none; /*remove none, add flex*/
+  display: flex; /*remove none, add flex*/
   justify-content: center;
   align-items: center;
 }
@@ -264,33 +264,88 @@ form .init {
   .boxRanquePlayers {
     height: 22rem;
   }
-  
+
   .boxLinesHorizontal {
     gap: 7rem;
   }
-  
+
   .boxLinesVertical {
     gap: 7rem;
   }
-  
+
   .boxLinesHorizontal div {
     width: 26rem;
   }
-  
+
   .boxLinesVertical div {
     height: 26rem;
+  }
+
+  .tableParts tr td {
+    height: 8.6rem;
+    width: 8.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .containerInitialize {
+    max-width: 48rem;
+    height: 27.2rem;
+    gap: 6.8rem;
+  }
+
+  form span {
+    padding: 1.6rem;
+  }
+
+  form .init {
+    width: 15.2rem;
+    height: 3.2rem;
+    font-size: 2rem;
+  }
+
+  .containerRanque {
+    max-width: 48rem;
+    padding: 1.6rem;
+  }
+
+  .boxRanquePlayers {
+    height: 22rem;
+  }
+  
+  .tableRanque tr td,
+  .tableRanque tr th {
+    font-size: 1.8rem;
+  }
+
+  .containerGame {
+    max-width: 48rem;
+  }
+  
+  .boxLinesHorizontal {
+    gap: 7.4rem;
+  }
+  
+  .boxLinesVertical {
+    gap: 7.4rem;
+  }
+  
+  .boxLinesHorizontal div {
+    width: 28rem;
+  }
+  
+  .boxLinesVertical div {
+    height: 28rem;
+  }
+  
+  /* game handles */
+  .boxParts {
+    max-width: 48rem;
   }
   
   .tableParts tr td {
     height: 8.6rem;
     width: 8.6rem;
   }
-
-}
-
-@media (min-width: 1024px) {
-}
-@media (min-width: 1440px) {
-}
-@media (min-width: 2560px) {
 }

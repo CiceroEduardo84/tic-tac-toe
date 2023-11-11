@@ -1,21 +1,20 @@
-footer{
+footer {
   width: 100%;
   position: fixed;
   bottom: 0;
-  padding: 2rem 2rem 2rem;
+  padding: 2rem;
   color: var(--var-font-color);
-
 }
 
 .copyright {
   max-width: 40rem;
-  font-size: clamp(1.6rem, 2.5vw, 2rem);
   margin: auto;
-  background: var(--var-bg-shadow-footer,0.3);
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
   border-radius: 0.6rem;
+  background: var(--var-bg-shadow-footer, 0.3);
 }
 
-.copyright a{
+.copyright a {
   padding: 1.6rem;
   display: block;
   text-align: center;
@@ -27,11 +26,19 @@ footer{
   .copyright {
     font-size: clamp(1.8rem, 2.5vw, 2.2rem);
   }
-  
-  .copyright a{
+
+  .copyright a {
     padding: 1.6rem;
   }
 }
-@media (min-width: 1024px) {}
-@media (min-width: 1440px) {}
-@media (min-width: 2560px) {}
+
+@media (min-width: 1024px) {
+  .copyright {
+    max-width: 48rem;
+    font-size: clamp(2.2rem, 2.5vw, 2.4rem);
+  }
+
+  .copyright a {
+    padding: 2rem;
+  }
+}

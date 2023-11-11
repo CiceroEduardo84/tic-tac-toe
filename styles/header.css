@@ -1,12 +1,12 @@
 header {
   width: 100%;
   position: relative;
-  padding: 1.4rem 2rem 1.4rem;
+  padding: 2rem;
   color: var(--var-font-color);
   z-index: 1;
 }
 
-.exit { 
+.exit {
   display: flex; /*remove none, add flex*/
   position: absolute;
   font-size: clamp(1.8rem, 2.5vw, 2.2rem);
@@ -24,7 +24,7 @@ header {
   font-size: clamp(3.2rem, 2.5vw, 3.6rem);
   font-weight: 700;
   text-shadow: 4px 4px 10px var(--var-bg-shadow-black),
-              -4px -4px 10px var(--var-bg-shadow-white);
+    -4px -4px 10px var(--var-bg-shadow-white);
   text-align: center;
   word-wrap: break-word;
 }
@@ -49,27 +49,46 @@ div .time {
 }
 
 @media (min-width: 768px) {
-
-  .exit { 
+  .exit {
     font-size: clamp(2rem, 2.5vw, 2.2rem);
   }
-  
+
   .containerTitle {
     max-width: 30rem;
     margin: 2.5rem auto 3rem;
   }
-  
+
   .boxTitle h1 {
     font-size: clamp(3.2rem, 2.5vw, 3.6rem);
   }
-  
+
   .boxInformation {
     width: 100%;
     margin: 0 0 0;
     font-size: clamp(2.2rem, 2.5vw, 2.6rem);
   }
-
 }
-@media (min-width: 1024px) {}
-@media (min-width: 1440px) {}
-@media (min-width: 2560px) {}
+
+@media (min-width: 1024px) {
+  /* header {
+    padding: 3rem;
+  } */
+
+  .exit {
+    font-size: clamp(2.4rem, 2.5vw, 2.6rem);
+  }
+
+  .containerTitle {
+    max-width: 40rem;
+    margin: 4rem auto 4rem;
+  }
+
+  .boxTitle h1 {
+    font-size: clamp(4.2rem, 2.5vw, 4.6rem);
+  }
+
+  .boxInformation {
+    margin: 1rem 0 0;
+    font-size: clamp(2.4rem, 2.5vw, 2.6rem);
+  }
+}
