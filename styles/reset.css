@@ -20,7 +20,7 @@
   --var-bg-shadow-black: rgba(0, 0, 0, 0.25);
   --highlight-color: rgba(255, 255, 255, 0.2);
   
-  --switch-bg-url: url(../images/MoonStars.svg);
+  --switch-bg-url: url(../styles/images/MoonStars.svg);
 }
 
 .light-mode {
@@ -34,7 +34,7 @@
   --var-bg-shadow-black: rgba(0, 0, 0, 0.25);
   --highlight-color: rgba(255, 255, 255, 0.2);
   
-  --switch-bg-url: url(../images/Sun.svg);
+  --switch-bg-url: url(../styles/images/Sun.svg);
 }
 
 body {
