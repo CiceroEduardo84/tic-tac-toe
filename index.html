@@ -25,7 +25,10 @@
   </head>
   <body>
     <header>
-      <div class="exit">
+      <div class="exitRanque exit">
+        <p>Sair</p>
+      </div>
+      <div class="exitGame exit">
         <p>Sair</p>
       </div>
 
@@ -35,7 +38,7 @@
         </div>
 
         <div class="boxInformation">
-          <div>Vez:<span> Jogador 1</span></div>
+          <div>Vez: <span id="currentPlayer">Jogador 1</span></div>
           <div class="time">00:00:00</div>
         </div>
       </section>
@@ -63,6 +66,7 @@
               type="text"
               class="player"
               id="player1"
+              autocomplete="off"
               placeholder="Player 1"
             />
             <span>X</span>
@@ -70,6 +74,7 @@
               type="text"
               class="player"
               id="player2"
+              autocomplete="off"
               placeholder="Player 2"
             />
             <button class="init">Jogar</button>

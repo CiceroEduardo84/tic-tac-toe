@@ -1,19 +1,19 @@
-const initialize = document.querySelector(".containerInitialize");
+const initialize = document.querySelector(".containerInitialize");;
 const ranque = document.querySelector(".containerRanque");
-const exit = document.querySelector(".exit");
+const exitRanque = document.querySelector(".exitRanque");
 
 function closeRanque() {
-  initialize.style.display = "flex";
-  ranque.style.display = "none";
-  exit.style.display = "none";
+    initialize.style.display = "flex";
+    ranque.style.display = "none";
+    exitRanque.style.display = "none";
 }
 
 function openRanque() {
   initialize.style.display = "none";
   ranque.style.display = "block";
-  exit.style.display = "flex";
+  exitRanque.style.display = "flex";
 
-  exit.addEventListener("click", closeRanque);
+  exitRanque.addEventListener("click", closeRanque);
 }
 
 export { openRanque };
