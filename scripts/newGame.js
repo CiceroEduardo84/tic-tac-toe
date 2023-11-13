@@ -9,6 +9,7 @@ const music = new Audio("./styles/audio/fundo.mp3");
 const laughter = new Audio("./styles/audio/risada.mp3");
 const arrayHandles = new Array(9);
 const currentPlayer = { player1: player1.value, player2: player2.value };
+
 let hour = 0;
 let minute = 0;
 let second = 0;
@@ -28,8 +29,8 @@ const start = () => {
       showTime();
     }, 10);
   }
-
   setTimeout(start, 0);
+
   exit.addEventListener("click", exitGame);
   music.play();
 };
@@ -86,14 +87,19 @@ const endGame = () => {
   game.style.display = "none";
   exit.style.display = "none";
   information.style.display = "none";
-  player1.value = "";
-  player2.value = "";
+
+  hour = 0;
+  minute = 0;
+  second = 0;
+  millisecond = 0;
+  cron = 0;
 
   function stopAudioStart() {
     music.pause();
   }
 
   setInterval(stopAudioStart, 0);
+  // window.location.reload(true);
 };
 
 export { start };
