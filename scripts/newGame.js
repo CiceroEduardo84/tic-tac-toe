@@ -42,7 +42,7 @@ const start = () => {
 
   music.play();
   setTimeout(start, 0);
-  setInterval(sortPlayer, 0);
+  setTimeout(sortPlayer, 0);
   exit.addEventListener("click", exitGame);
 };
 
