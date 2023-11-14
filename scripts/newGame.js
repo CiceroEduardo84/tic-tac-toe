@@ -6,7 +6,7 @@ const currentPlayer = document.querySelector("#currentPlayer");
 const player1 = document.querySelector("#player1");
 const player2 = document.querySelector("#player2");
 const timeGame = document.querySelector(".time");
-const exit = document.querySelector(".exitGame");
+const exit = document.querySelector(".exitRanque");
 const music = new Audio("./styles/audio/fundo.mp3");
 const laughter = new Audio("./styles/audio/risada.mp3");
 const arrayHandles = new Array(9);
@@ -26,6 +26,8 @@ const start = () => {
   game.style.display = "flex";
   exit.style.display = "block";
   information.style.display = "flex";
+  exit.classList.remove("exitRanque");
+  exit.classList.add("exitGame");
 
   function start() {
     cron = setInterval(() => {
@@ -81,6 +83,8 @@ const exitGame = () => {
     laughter.pause();
   }
   function cancelGame() {
+    exit.classList.remove("exitGame");
+    exit.classList.add("exitRanque");
     window.location.reload(true);
   }
   function stopTime() {
