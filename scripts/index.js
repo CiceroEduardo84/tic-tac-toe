@@ -9,12 +9,12 @@ const player1 = document.querySelector("#player1");
 const player2 = document.querySelector("#player2");
 const handlers = Array.from(document.querySelectorAll(`[class^='part']`));
 
-mode.addEventListener("click", toggleMode);
-ranque.addEventListener("click", openRanque);
+let value1;
+let value2;
 
-const validation = () => {
-  let value1 = String(player1.value).split("");
-  let value2 = String(player2.value).split("");
+const verificar = () => {
+  value1 = player1.value.split("");
+  value2 = player2.value.split("");
 
   if (value1.length > 4 || value2.length > 4) {
     initGame.addEventListener("click", start);
@@ -25,5 +25,8 @@ const validation = () => {
 };
 
 setInterval(() => {
-  validation();
+  verificar();
 }, 1010);
+
+mode.addEventListener("click", toggleMode);
+ranque.addEventListener("click", openRanque);
