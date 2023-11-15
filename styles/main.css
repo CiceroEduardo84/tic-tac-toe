@@ -245,7 +245,6 @@ main {
   position: absolute;
   display: flex;
   justify-content: center;
-  align-items: center;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -254,10 +253,11 @@ main {
 }
 
 .boxVictory {
+  position: relative;
   max-width: 40rem;
   height: 22rem;
+  top: 14rem;
   padding: 2rem;
-  gap: 6rem;
   background-color: var(--var-bg-color-init);
 }
 
@@ -275,7 +275,7 @@ main {
 .backgroundVictory img {
   width: 18rem;
   position: absolute;
-  top: 20rem;
+  top: 0rem;
   margin: auto;
 }
 
@@ -298,9 +298,9 @@ main {
 .reloadWindow {
   width: 6.5rem;
   height: 3rem;
-  position: fixed;
-  top: 60%;
-  left: 70%;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
   border: none;
   border-radius: 10px;
   background: var(--var-bg-color-init);
@@ -354,6 +354,36 @@ main {
   .tableParts tr td {
     height: 8.6rem;
     width: 8.6rem;
+  }
+
+  .boxVictory {
+    max-width: 40rem;
+    height: 25rem;
+    top: 13.3rem;
+    padding: 3rem;
+  }
+
+  .backgroundVictory {
+    width: 26rem;
+    height: 20rem;
+    padding: 2rem;
+  }
+
+  .backgroundVictory img {
+    width: 20rem;
+    top: 2rem;
+  }
+
+  .playerVictory {
+    width: 20rem;
+    height: 15rem;
+  }
+
+  .reloadWindow {
+    width: 7rem;
+    height: 3.5rem;
+    bottom: 2rem;
+    right: 3rem;
   }
 }
 
@@ -415,5 +445,35 @@ main {
   .tableParts tr td {
     height: 8.6rem;
     width: 8.6rem;
+  }
+  
+  .boxVictory {
+    max-width: 40rem;
+    height: 27.3rem;
+    top: 17rem;
+    padding: 3rem;
+  }
+  
+  .backgroundVictory {
+    width: 28rem;
+    height: 20rem;
+    padding: 2rem;
+  }
+  
+  .backgroundVictory img {
+    width: 22rem;
+    top: 1rem;
+  }
+  
+  .playerVictory {
+    width: 22rem;
+    height: 15rem;
+  }
+  
+  .reloadWindow {
+    width: 8rem;
+    height: 4rem;
+    bottom: 4rem;
+    right: 2rem;
   }
 }

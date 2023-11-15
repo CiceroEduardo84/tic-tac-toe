@@ -1,20 +1,23 @@
-let handles;
+import { endGame } from "./newGame.js";
+
+let reloadWindow;
+let part;
 let victory;
 
-function printHandles(showHandle, X) {
-  handles = document.querySelector(`#hundler${X}`);
-  handles.innerHTML = "";
+function printPart(showPart, X) {
+  part = document.querySelector(`.part${X}`);
+  part.innerHTML = "";
 
-  if (showHandle == player1.value) {
-    handles.innerHTML += `
+  if (showPart == player1.value) {
+    part.innerHTML += `
       <img
         src="./styles/images/Xis-darckMode.svg"
         alt=""
         class="part"
       />
     `;
-  } else if (showHandle == player2.value) {
-    handles.innerHTML += `
+  } else if (showPart == player2.value) {
+    part.innerHTML += `
       <img
         src="./styles/images/Bolinha-darckMode.svg"
         alt=""
@@ -24,7 +27,7 @@ function printHandles(showHandle, X) {
   }
 }
 
-function printVictory(phrase, player) {
+function printVictory(player, phrase) {
   victory = document.querySelector("article");
   victory.innerHTML = `        
     <section class="containerVictory">
@@ -32,12 +35,15 @@ function printVictory(phrase, player) {
         <div class="backgroundVictory">
           <img src="./styles/images/stars.svg" alt="" />
           <div class="playerVictory">
-            <p>${player} ${phrase}</p>
+            <p>${phrase}: ${player}!</p>
           </div>
         </div>
         <button class="reloadWindow">OK</button>
       </div>
     </section>`;
+
+  reloadWindow = document.querySelector(".reloadWindow");
+  reloadWindow.addEventListener("click", endGame);
 }
 
-export { printHandles, printVictory };
+export { printPart, printVictory };

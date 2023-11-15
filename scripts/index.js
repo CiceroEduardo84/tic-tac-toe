@@ -2,16 +2,14 @@ import { toggleMode } from "./lightDarkMode.js";
 import { openRanque } from "./ranque.js";
 import { start, startGame } from "./newGame.js";
 
-// DOM Elements
 const mode = document.querySelector("#switch");
-const ranqueButton = document.querySelector(".boxRanque");
-const initGameButton = document.querySelector(".init");
-const hundlers = Array.from(document.querySelectorAll("[id^='hundler']"));
+const ranque = document.querySelector(".boxRanque");
+const initGame = document.querySelector(".init");
+const handlers = Array.from(document.querySelectorAll(`[class^='part']`));
 
-// Event Listeners
 mode.addEventListener("click", toggleMode);
-ranqueButton.addEventListener("click", openRanque);
-initGameButton.addEventListener("click", start);
-hundlers.forEach((hundler, index) => {
-  hundler.addEventListener("click", () => startGame(index));
+ranque.addEventListener("click", openRanque);
+initGame.addEventListener("click", start);
+handlers.forEach((handler, index) => {
+  handler.addEventListener("click", () => startGame(index));
 });

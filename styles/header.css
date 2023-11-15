@@ -7,7 +7,7 @@ header {
   z-index: 1;
 }
 
-.exit {
+.exit, .exitRanque, .exitGame {
   display: none;
   position: absolute;
   font-size: clamp(1.8rem, 2.5vw, 2.2rem);

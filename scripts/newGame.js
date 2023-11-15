@@ -1,4 +1,4 @@
-import { printHandles, printVictory } from "./components.js";
+import { printPart, printVictory } from "./components.js";
 
 // DOM Elements
 const initialize = document.querySelector(".containerInitialize");
@@ -9,17 +9,17 @@ const currentPlayer = document.querySelector("#currentPlayer");
 const player1 = document.querySelector("#player1");
 const player2 = document.querySelector("#player2");
 const timeGame = document.querySelector(".time");
-const exit = document.querySelector(".exitRanque");
+const exit = document.querySelector(".exit");
 
 // Audio Elements
 const music = new Audio("./styles/audio/fundo.mp3");
 const soundError = new Audio("./styles/audio/erro.mp3");
 
 // Game Variables
-const arrayHandles = new Array(9);
+const arrayParts = new Array(9);
 const players = [player1, player2];
 const draw = "Empate!";
-const victory = "Venceu!";
+const victory = "Vencedor";
 
 let sortCurrentPlayer;
 let hour = 0;
@@ -35,8 +35,6 @@ const start = () => {
   game.style.display = "flex";
   exit.style.display = "block";
   information.style.display = "flex";
-  exit.classList.remove("exitRanque");
-  exit.classList.add("exitGame");
 
   function sortPlayer() {
     sortCurrentPlayer = players[Math.floor(Math.random() * 2)].value;
@@ -72,23 +70,20 @@ const showTime = () => {
     minute = 0;
     hour++;
   }
-  timeGame.innerText = `${returnData(hour)}:${returnData(minute)}:${returnData(second)}`;
+  timeGame.innerText = `${returnData(hour)}:${returnData(minute)}:${returnData(
+    second
+  )}`;
 };
 
 // -----Exit Game-----
 const exitGame = () => {
   let conf = confirm("Tem certeza que deseja desistir?");
 
-  function cancelGame() {
-    window.location.reload(true);
-  }
-
   clearInterval(cron);
 
   if (conf) {
-    setInterval(() => music.pause(), 0);
-
-    setTimeout(cancelGame, 1);
+    music.pause();
+    endGame();
   } else {
     start();
   }
@@ -96,15 +91,16 @@ const exitGame = () => {
 
 // -----Game-----
 const startGame = (y) => {
-  if (!arrayHandles[y]) {
-    arrayHandles[y] = sortCurrentPlayer;
+  if (!arrayParts[y]) {
+    arrayParts[y] = sortCurrentPlayer;
 
     setTimeout(() => {
-      sortCurrentPlayer = (sortCurrentPlayer == player1.value) ? player2.value : player1.value;
+      sortCurrentPlayer =
+        sortCurrentPlayer == player1.value ? player2.value : player1.value;
       currentPlayer.innerHTML = sortCurrentPlayer;
     }, 0);
 
-    showHandles();
+    showParts();
     checkountVictorys();
   } else {
     playErrorSound();
@@ -133,7 +129,9 @@ const checkountVictorys = () => {
   }
 };
 
-const arrayIsFilled = () => arrayHandles.filter(element => element !== undefined).length === arrayHandles.length;
+const arrayIsFilled = () =>
+  arrayParts.filter((element) => element !== undefined).length ===
+  arrayParts.length;
 
 const allElementsInSomeLine = () => {
   for (let i = 0; i < 7; i += 3) {
@@ -155,18 +153,28 @@ const allElementsInSomeDiagonal = () => {
 
 const isVictoryCombination = (index1, index2, index3) => {
   return (
-    arrayHandles[index1] == player1.value &&
-    arrayHandles[index2] == player1.value &&
-    arrayHandles[index3] == player1.value
-  ) || (
-    arrayHandles[index1] == player2.value &&
-    arrayHandles[index2] == player2.value &&
-    arrayHandles[index3] == player2.value
+    (arrayParts[index1] == player1.value &&
+      arrayParts[index2] == player1.value &&
+      arrayParts[index3] == player1.value) ||
+    (arrayParts[index1] == player2.value &&
+      arrayParts[index2] == player2.value &&
+      arrayParts[index3] == player2.value)
   );
 };
 
-const showHandles = () => {
-  arrayHandles.forEach((handle, indexY) => printHandles(handle, indexY));
+const showParts = () => {
+  arrayParts.forEach((part, indexY) => printPart(part, indexY));
 };
 
-export { start, startGame };
+// -----End Game-----
+const endGame = () => {
+  initialize.style.display = "flex";
+  ranque.style.display = "none";
+  game.style.display = "none";
+  exit.style.display = "none";
+  information.style.display = "none";
+
+  window.location.reload(true);
+};
+
+export { start, startGame, endGame };
