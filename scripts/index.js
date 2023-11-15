@@ -7,7 +7,7 @@ const ranque = document.querySelector(".boxRanque");
 const initGame = document.querySelector(".init");
 const player1 = document.querySelector("#player1");
 const player2 = document.querySelector("#player2");
-const handlers = Array.from(document.querySelectorAll(`[class^='part']`));
+const parts = Array.from(document.querySelectorAll(`[class^='part']`));
 
 let value1;
 let value2;
@@ -18,9 +18,6 @@ const verificar = () => {
 
   if (value1.length > 4 || value2.length > 4) {
     initGame.addEventListener("click", start);
-    handlers.forEach((handler, index) => {
-      handler.addEventListener("click", () => startGame(index));
-    });
   }
 };
 
@@ -28,5 +25,8 @@ setInterval(() => {
   verificar();
 }, 1010);
 
+parts.forEach((part, index) => {
+  part.addEventListener("click", () => startGame(index));
+});
 mode.addEventListener("click", toggleMode);
 ranque.addEventListener("click", openRanque);
