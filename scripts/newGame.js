@@ -1,3 +1,5 @@
+import { printHandles, printVictory } from "./components.js";
+
 const initialize = document.querySelector(".containerInitialize");
 const ranque = document.querySelector(".containerRanque");
 const information = document.querySelector(".boxInformation");
@@ -9,8 +11,10 @@ const timeGame = document.querySelector(".time");
 const exit = document.querySelector(".exitRanque");
 const music = new Audio("./styles/audio/fundo.mp3");
 const soundError = new Audio("./styles/audio/erro.mp3");
-const arrayHandles = [new Array(3), new Array(3), new Array(3)];
+const arrayHandles = new Array(9);
 const players = [player1, player2];
+const draw = "Empate!";
+const victory = "Venceu!";
 
 let sortCurrentPlayer;
 let hour = 0;
@@ -94,14 +98,26 @@ const exitGame = () => {
 };
 
 // -----Game-----
-const startGame = (y, x) => {
-  if (!arrayHandles[y][x]) {
-    arrayHandles[y][x] = sortCurrentPlayer;
-    sortCurrentPlayer =
-      sortCurrentPlayer == player1.value ? player2.value : player1.value;
+const startGame = (y) => {
+  if (!arrayHandles[y]) {
+    arrayHandles[y] = sortCurrentPlayer;
 
-    currentPlayer.innerHTML = sortCurrentPlayer;
-    showHandles(y, x);
+    setTimeout(() => {
+      sortCurrentPlayer =
+        sortCurrentPlayer == player1.value ? player2.value : player1.value;
+      currentPlayer.innerHTML = sortCurrentPlayer;
+    }, 0);
+// ---------------------------------------------------------------
+    showHandles();
+    allElementsInSomeLine();
+    allElementsInSomeColumn();
+    allElementsInSomeDiagonal();
+
+    if (arrayIsFilled()) {
+      let empy = "";
+      printVictory(empy, draw);
+    }
+// ----------------------------------------------------------------
   } else {
     soundError.play();
     setTimeout(() => {
@@ -111,36 +127,91 @@ const startGame = (y, x) => {
   }
 };
 
-const showHandles = () => {
-  let handles;
-
-  function printHandles(showHandle, Y, X) {
-    handles = document.querySelector(`#hundler${Y}${X}`);
-    handles.innerHTML = ``;
-
-    if (showHandle == player1.value) {
-      handles.innerHTML += `
-      <img
-      src="./styles/images/Xis-darckMode.svg"
-      alt=""
-      class="part"
-    />
-  `;
-    } else if (showHandle == player2.value) {
-      handles.innerHTML += `
-      <img
-      src="./styles/images/Bolinha-darckMode.svg"
-      alt=""
-      class="part"
-    />
-  `;
+const arrayIsFilled = () => {
+  let numberFilled = 0;
+  for (let x = 0; x < arrayHandles.length; x++) {
+    if (arrayHandles[x] != undefined) {
+      numberFilled++;
     }
   }
+  return numberFilled == arrayHandles.length;
+};
 
-  for (let indexY = 0; indexY < arrayHandles.length; indexY++) {
-    for (let indexX = 0; indexX < arrayHandles[indexY].length; indexX++) {
-      printHandles(arrayHandles[indexY][indexX], indexY, indexX);
+const allElementsInSomeLine = () => {
+  for (let i = 0; i < 7; i += 3) {
+    if (
+      arrayHandles[i] == player1.value &&
+      arrayHandles[i + 1] == player1.value &&
+      arrayHandles[i + 2] == player1.value
+    ) {
+      setTimeout(() => {
+        printVictory(sortCurrentPlayer, victory);
+      }, 1000);
     }
+    if (
+      arrayHandles[i] == player2.value &&
+      arrayHandles[i + 1] == player2.value &&
+      arrayHandles[i + 2] == player2.value
+    ) {
+      setTimeout(() => {
+        printVictory(sortCurrentPlayer, victory);
+      }, 1000);
+    }
+  }
+};
+
+const allElementsInSomeColumn = function () {
+  for (var i = 0; i < 3; i++) {
+    if (
+      arrayHandles[i] == player1.value &&
+      arrayHandles[i + 3] == player1.value &&
+      arrayHandles[i + 6] == player1.value
+    ) {
+      setTimeout(() => {
+        printVictory(sortCurrentPlayer, victory);
+      }, 1000);
+    }
+    if (
+      arrayHandles[i] == player2.value &&
+      arrayHandles[i + 3] == player2.value &&
+      arrayHandles[i + 6] == player2.value
+    ) {
+      setTimeout(() => {
+        printVictory(sortCurrentPlayer, victory);
+      }, 1000);
+    }
+  }
+};
+
+const allElementsInSomeDiagonal = function () {
+  if (
+    (arrayHandles[0] == player1.value &&
+      arrayHandles[4] == player1.value &&
+      arrayHandles[8] == player1.value) ||
+    (arrayHandles[2] == player1.value &&
+      arrayHandles[4] == player1.value &&
+      arrayHandles[6] == player1.value)
+  ) {
+    setTimeout(() => {
+      printVictory(sortCurrentPlayer, victory);
+    }, 1000);
+  } else if (
+    (arrayHandles[0] == player2.value &&
+      arrayHandles[4] == player2.value &&
+      arrayHandles[8] == player2.value) ||
+    (arrayHandles[2] == player2.value &&
+      arrayHandles[4] == player2.value &&
+      arrayHandles[6] == player2.value)
+  ) {
+    setTimeout(() => {
+      printVictory(sortCurrentPlayer, victory);
+    }, 1000);
+  }
+};
+
+const showHandles = () => {
+  for (let indexY = 0; indexY < arrayHandles.length; indexY++) {
+    printHandles(arrayHandles[indexY], indexY);
   }
 };
 

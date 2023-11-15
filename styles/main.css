@@ -131,7 +131,7 @@ main {
 /* Ranque */
 .containerRanque {
   max-width: 40rem;
-  display: none;/*remove display flex*/
+  display: none; /*remove display flex*/
   margin: auto;
   padding: 1rem;
   background-color: var(--var-bg-color-init);
@@ -236,6 +236,78 @@ main {
   width: 70%;
 }
 
+/* Victory */
+.containerVictory {
+  width: 100vw;
+  height: 100vh;
+  padding: 2rem;
+  position: absolute;
+  display: flex; /*remove none, add flex*/
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  background-color: var(--var-bg-color-victory);
+}
+
+.boxVictory {
+  max-width: 40rem;
+  height: 22rem;
+  padding: 2rem;
+  gap: 6rem;
+  background-color: var(--var-bg-color-init);
+}
+
+.backgroundVictory {
+  width: 24rem;
+  height: 18rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--var-bg-color);
+  border-radius: 50px 50px 30px 30px;
+}
+
+.backgroundVictory img {
+  width: 18rem;
+  position: absolute;
+  top: 20rem;
+  margin: auto;
+}
+
+.playerVictory {
+  width: 18rem;
+  height: 15rem;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--var-bg-color-box);
+  border-radius: 50px 50px 30px 30px;
+}
+
+.playerVictory p {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.reloadWindow {
+  width: 6.5rem;
+  height: 3rem;
+  position: fixed;
+  top: 60%;
+  left: 70%;
+  border: none;
+  border-radius: 10px;
+  background: var(--var-bg-color-init);
+  color: var(--var-font-color);
+  box-shadow: 4px 4px 4px var(--var-bg-shadow-black),
+    -4px -4px 8px var(--var-bg-color);
+}
+
 @media (min-width: 768px) {
   .containerInitialize {
     padding: 2rem;
@@ -284,7 +356,6 @@ main {
 }
 
 @media (min-width: 1024px) {
-
   .containerInitialize {
     max-width: 48rem;
     height: 27.2rem;
@@ -309,7 +380,7 @@ main {
   .boxRanquePlayers {
     height: 22rem;
   }
-  
+
   .tableRanque tr td,
   .tableRanque tr th {
     font-size: 1.8rem;
@@ -318,28 +389,28 @@ main {
   .containerGame {
     max-width: 48rem;
   }
-  
+
   .boxLinesHorizontal {
     gap: 7.4rem;
   }
-  
+
   .boxLinesVertical {
     gap: 7.4rem;
   }
-  
+
   .boxLinesHorizontal div {
     width: 28rem;
   }
-  
+
   .boxLinesVertical div {
     height: 28rem;
   }
-  
+
   /* game handles */
   .boxParts {
     max-width: 48rem;
   }
-  
+
   .tableParts tr td {
     height: 8.6rem;
     width: 8.6rem;
