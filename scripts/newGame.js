@@ -9,7 +9,8 @@ const timeGame = document.querySelector(".time");
 const exit = document.querySelector(".exitRanque");
 const music = new Audio("./styles/audio/fundo.mp3");
 const laughter = new Audio("./styles/audio/risada.mp3");
-const arrayHandles = new Array(9);
+const soundError = new Audio("./styles/audio/error2.mp3");
+const arrayHandles = [new Array(3), new Array(3), new Array(3)];
 const players = [player1, player2];
 
 let sortCurrentPlayer;
@@ -82,15 +83,16 @@ const exitGame = () => {
   function stopAudioLaughter() {
     laughter.pause();
   }
+  function stopTime() {
+    clearInterval(cron);
+  }
+  setInterval(stopTime, 0)
+
   function cancelGame() {
     exit.classList.remove("exitGame");
     exit.classList.add("exitRanque");
     window.location.reload(true);
   }
-  function stopTime() {
-    clearInterval(cron);
-  }
-  setInterval(stopTime, 0);
 
   if (conf) {
     setInterval(stopAudiobackground, 0);
@@ -103,10 +105,63 @@ const exitGame = () => {
 };
 
 // -----Game-----
-const startGame = (num) => {
-  sortCurrentPlayer =
-    sortCurrentPlayer == player1.value ? player2.value : player1.value;
-  currentPlayer.innerHTML = sortCurrentPlayer;
+const startGame = (y, x) => {
+  let error;
+  let handles;
+
+  function soundErrorStart() {
+    error = setInterval(() => {
+      soundError.play();
+    }, 0);
+  }
+
+  function soundErrorStop() {
+    clearInterval(error);
+  }
+
+  function clearHundles(Y, X) {
+    handles = document.querySelector(`#hundler${Y}${X}`);
+    handles.innerHTML = ``;
+  }
+
+  function printHandles(showHandle, Y, X) {
+    handles = document.querySelector(`#hundler${Y}${X}`);
+
+    if (showHandle == player1.value) {
+      handles.innerHTML += `
+      <img
+      src="./styles/images/Xis-darckMode.svg"
+      alt=""
+      class="part"
+    />
+  `;
+    } else if (showHandle == player2.value) {
+      handles.innerHTML += `
+      <img
+      src="./styles/images/Bolinha-darckMode.svg"
+      alt=""
+      class="part"
+    />
+  `;
+    }
+  }
+
+  if (!arrayHandles[y][x]) {
+    arrayHandles[y][x] = sortCurrentPlayer;
+    sortCurrentPlayer =
+      sortCurrentPlayer == player1.value ? player2.value : player1.value;
+    currentPlayer.innerHTML = sortCurrentPlayer;
+
+    for (let indexY = 0; indexY < arrayHandles.length; indexY++) {
+      for (let indexX = 0; indexX < arrayHandles[indexY].length; indexX++) {
+        clearHundles(indexY, indexX);
+        printHandles(arrayHandles[indexY][indexX], indexY, indexX);
+      }
+    }
+  } else {
+    setTimeout(soundErrorStart, 0);
+    setInterval(soundErrorStop, 100);
+  }
 };
 
 // -----End Game-----
