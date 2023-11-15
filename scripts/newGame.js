@@ -107,23 +107,33 @@ const startGame = (y) => {
         sortCurrentPlayer == player1.value ? player2.value : player1.value;
       currentPlayer.innerHTML = sortCurrentPlayer;
     }, 0);
-// ---------------------------------------------------------------
-    showHandles();
-    allElementsInSomeLine();
-    allElementsInSomeColumn();
-    allElementsInSomeDiagonal();
 
-    if (arrayIsFilled()) {
-      let empy = "";
-      printVictory(empy, draw);
-    }
-// ----------------------------------------------------------------
+    showHandles();
+    checkountVictorys();
   } else {
     soundError.play();
     setTimeout(() => {
       soundError.pause();
       soundError.currentTime = 0;
     }, 1000);
+  }
+};
+
+const checkountVictorys = () => {
+  let empy = "";
+
+  if (
+    allElementsInSomeLine() ||
+    allElementsInSomeColumn() ||
+    allElementsInSomeDiagonal()
+  ) {
+    setTimeout(() => {
+      printVictory(sortCurrentPlayer, victory);
+    }, 500);
+  } else if (arrayIsFilled()) {
+    setTimeout(() => {
+      printVictory(empy, draw);
+    }, 500);
   }
 };
 
@@ -144,46 +154,38 @@ const allElementsInSomeLine = () => {
       arrayHandles[i + 1] == player1.value &&
       arrayHandles[i + 2] == player1.value
     ) {
-      setTimeout(() => {
-        printVictory(sortCurrentPlayer, victory);
-      }, 1000);
+      return true;
     }
     if (
       arrayHandles[i] == player2.value &&
       arrayHandles[i + 1] == player2.value &&
       arrayHandles[i + 2] == player2.value
     ) {
-      setTimeout(() => {
-        printVictory(sortCurrentPlayer, victory);
-      }, 1000);
+      return true;
     }
   }
 };
 
-const allElementsInSomeColumn = function () {
+const allElementsInSomeColumn = () => {
   for (var i = 0; i < 3; i++) {
     if (
       arrayHandles[i] == player1.value &&
       arrayHandles[i + 3] == player1.value &&
       arrayHandles[i + 6] == player1.value
     ) {
-      setTimeout(() => {
-        printVictory(sortCurrentPlayer, victory);
-      }, 1000);
+      return true;
     }
     if (
       arrayHandles[i] == player2.value &&
       arrayHandles[i + 3] == player2.value &&
       arrayHandles[i + 6] == player2.value
     ) {
-      setTimeout(() => {
-        printVictory(sortCurrentPlayer, victory);
-      }, 1000);
+      return true;
     }
   }
 };
 
-const allElementsInSomeDiagonal = function () {
+const allElementsInSomeDiagonal = () => {
   if (
     (arrayHandles[0] == player1.value &&
       arrayHandles[4] == player1.value &&
@@ -192,10 +194,9 @@ const allElementsInSomeDiagonal = function () {
       arrayHandles[4] == player1.value &&
       arrayHandles[6] == player1.value)
   ) {
-    setTimeout(() => {
-      printVictory(sortCurrentPlayer, victory);
-    }, 1000);
-  } else if (
+    return true;
+  }
+  if (
     (arrayHandles[0] == player2.value &&
       arrayHandles[4] == player2.value &&
       arrayHandles[8] == player2.value) ||
@@ -203,9 +204,7 @@ const allElementsInSomeDiagonal = function () {
       arrayHandles[4] == player2.value &&
       arrayHandles[6] == player2.value)
   ) {
-    setTimeout(() => {
-      printVictory(sortCurrentPlayer, victory);
-    }, 1000);
+    return true;
   }
 };
 
