@@ -8,8 +8,7 @@ const player2 = document.querySelector("#player2");
 const timeGame = document.querySelector(".time");
 const exit = document.querySelector(".exitRanque");
 const music = new Audio("./styles/audio/fundo.mp3");
-const laughter = new Audio("./styles/audio/risada.mp3");
-const soundError = new Audio("./styles/audio/error2.mp3");
+const soundError = new Audio("./styles/audio/erro.mp3");
 const arrayHandles = [new Array(3), new Array(3), new Array(3)];
 const players = [player1, player2];
 
@@ -30,20 +29,23 @@ const start = () => {
   exit.classList.remove("exitRanque");
   exit.classList.add("exitGame");
 
-  function start() {
-    cron = setInterval(() => {
-      showTime();
-    }, 10);
-  }
-
   function sortPlayer() {
     sortCurrentPlayer = players[Math.floor(Math.random() * 2)].value;
     currentPlayer.innerHTML = sortCurrentPlayer;
   }
 
-  music.play();
-  setTimeout(start, 0);
-  setTimeout(sortPlayer, 0);
+  cron = setInterval(() => {
+    showTime();
+  }, 10);
+
+  if (!sortCurrentPlayer) {
+    setTimeout(sortPlayer, 0);
+  }
+
+  setInterval(() => {
+    music.play();
+  }, 100);
+
   exit.addEventListener("click", exitGame);
 };
 
@@ -74,31 +76,18 @@ const showTime = () => {
 const exitGame = () => {
   let conf = confirm("Tem certeza que deseja desistir?");
 
-  function stopAudiobackground() {
-    music.pause();
-  }
-  function startAudioLaughter() {
-    laughter.play();
-  }
-  function stopAudioLaughter() {
-    laughter.pause();
-  }
-  function stopTime() {
-    clearInterval(cron);
-  }
-  setInterval(stopTime, 0)
-
   function cancelGame() {
-    exit.classList.remove("exitGame");
-    exit.classList.add("exitRanque");
     window.location.reload(true);
   }
 
+  clearInterval(cron);
+
   if (conf) {
-    setInterval(stopAudiobackground, 0);
-    setTimeout(startAudioLaughter, 0);
-    setTimeout(stopAudioLaughter, 3000);
-    setTimeout(cancelGame, 3001);
+    setInterval(() => {
+      music.pause();
+    }, 0);
+
+    setTimeout(cancelGame, 1);
   } else {
     start();
   }
@@ -106,26 +95,28 @@ const exitGame = () => {
 
 // -----Game-----
 const startGame = (y, x) => {
-  let error;
+  if (!arrayHandles[y][x]) {
+    arrayHandles[y][x] = sortCurrentPlayer;
+    sortCurrentPlayer =
+      sortCurrentPlayer == player1.value ? player2.value : player1.value;
+
+    currentPlayer.innerHTML = sortCurrentPlayer;
+    showHandles(y, x);
+  } else {
+    soundError.play();
+    setTimeout(() => {
+      soundError.pause();
+      soundError.currentTime = 0;
+    }, 1000);
+  }
+};
+
+const showHandles = () => {
   let handles;
-
-  function soundErrorStart() {
-    error = setInterval(() => {
-      soundError.play();
-    }, 0);
-  }
-
-  function soundErrorStop() {
-    clearInterval(error);
-  }
-
-  function clearHundles(Y, X) {
-    handles = document.querySelector(`#hundler${Y}${X}`);
-    handles.innerHTML = ``;
-  }
 
   function printHandles(showHandle, Y, X) {
     handles = document.querySelector(`#hundler${Y}${X}`);
+    handles.innerHTML = ``;
 
     if (showHandle == player1.value) {
       handles.innerHTML += `
@@ -146,21 +137,10 @@ const startGame = (y, x) => {
     }
   }
 
-  if (!arrayHandles[y][x]) {
-    arrayHandles[y][x] = sortCurrentPlayer;
-    sortCurrentPlayer =
-      sortCurrentPlayer == player1.value ? player2.value : player1.value;
-    currentPlayer.innerHTML = sortCurrentPlayer;
-
-    for (let indexY = 0; indexY < arrayHandles.length; indexY++) {
-      for (let indexX = 0; indexX < arrayHandles[indexY].length; indexX++) {
-        clearHundles(indexY, indexX);
-        printHandles(arrayHandles[indexY][indexX], indexY, indexX);
-      }
+  for (let indexY = 0; indexY < arrayHandles.length; indexY++) {
+    for (let indexX = 0; indexX < arrayHandles[indexY].length; indexX++) {
+      printHandles(arrayHandles[indexY][indexX], indexY, indexX);
     }
-  } else {
-    setTimeout(soundErrorStart, 0);
-    setInterval(soundErrorStop, 100);
   }
 };
 
