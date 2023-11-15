@@ -1,7 +1,7 @@
 const html = document.documentElement;
 
 function toggleMode() {
-  html.classList.toggle("light-mode");
+    html.classList.toggle("light-mode");
 }
 
 export { toggleMode };

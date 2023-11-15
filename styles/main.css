@@ -1,3 +1,4 @@
+/* Main */
 main {
   width: 100%;
   padding: 2rem;
@@ -8,7 +9,7 @@ main {
 .containerInitialize {
   max-width: 40rem;
   height: 25rem;
-  display: flex; /*remove none, add flex*/
+  display: flex;
   justify-content: start;
   align-items: center;
   flex-direction: column;
@@ -82,7 +83,7 @@ main {
     inset -4px -4px 4px var(--var-bg-shadow-black);
 }
 
-/* PLayers */
+/* Players */
 .boxPlayersName {
   width: 100%;
   text-align: center;
@@ -131,7 +132,7 @@ main {
 /* Ranque */
 .containerRanque {
   max-width: 40rem;
-  display: none; /*remove display flex*/
+  display: none;
   margin: auto;
   padding: 1rem;
   background-color: var(--var-bg-color-init);
@@ -177,7 +178,7 @@ main {
 .containerGame {
   max-width: 40rem;
   margin: auto;
-  display: none; /*remove none, add flex*/
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -218,7 +219,7 @@ main {
   box-shadow: 2px 4px 2px var(--var-bg-shadow-black) inset;
 }
 
-/* game handles */
+/* Game handles */
 .boxParts {
   max-width: 40rem;
   position: absolute;
@@ -242,7 +243,7 @@ main {
   height: 100vh;
   padding: 2rem;
   position: absolute;
-  display: flex; /*remove none, add flex*/
+  display: flex;
   justify-content: center;
   align-items: center;
   top: 0;
@@ -308,6 +309,7 @@ main {
     -4px -4px 8px var(--var-bg-color);
 }
 
+/* Media Queries */
 @media (min-width: 768px) {
   .containerInitialize {
     padding: 2rem;
@@ -406,7 +408,6 @@ main {
     height: 28rem;
   }
 
-  /* game handles */
   .boxParts {
     max-width: 48rem;
   }

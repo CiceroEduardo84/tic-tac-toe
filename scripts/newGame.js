@@ -1,5 +1,6 @@
 import { printHandles, printVictory } from "./components.js";
 
+// DOM Elements
 const initialize = document.querySelector(".containerInitialize");
 const ranque = document.querySelector(".containerRanque");
 const information = document.querySelector(".boxInformation");
@@ -9,8 +10,12 @@ const player1 = document.querySelector("#player1");
 const player2 = document.querySelector("#player2");
 const timeGame = document.querySelector(".time");
 const exit = document.querySelector(".exitRanque");
+
+// Audio Elements
 const music = new Audio("./styles/audio/fundo.mp3");
 const soundError = new Audio("./styles/audio/erro.mp3");
+
+// Game Variables
 const arrayHandles = new Array(9);
 const players = [player1, player2];
 const draw = "Empate!";
@@ -38,17 +43,13 @@ const start = () => {
     currentPlayer.innerHTML = sortCurrentPlayer;
   }
 
-  cron = setInterval(() => {
-    showTime();
-  }, 10);
+  cron = setInterval(() => showTime(), 10);
 
   if (!sortCurrentPlayer) {
     setTimeout(sortPlayer, 0);
   }
 
-  setInterval(() => {
-    music.play();
-  }, 100);
+  setInterval(() => music.play(), 100);
 
   exit.addEventListener("click", exitGame);
 };
@@ -71,9 +72,7 @@ const showTime = () => {
     minute = 0;
     hour++;
   }
-  timeGame.innerText = `${returnData(hour)}:${returnData(minute)}:${returnData(
-    second
-  )}`;
+  timeGame.innerText = `${returnData(hour)}:${returnData(minute)}:${returnData(second)}`;
 };
 
 // -----Exit Game-----
@@ -87,9 +86,7 @@ const exitGame = () => {
   clearInterval(cron);
 
   if (conf) {
-    setInterval(() => {
-      music.pause();
-    }, 0);
+    setInterval(() => music.pause(), 0);
 
     setTimeout(cancelGame, 1);
   } else {
@@ -103,134 +100,73 @@ const startGame = (y) => {
     arrayHandles[y] = sortCurrentPlayer;
 
     setTimeout(() => {
-      sortCurrentPlayer =
-        sortCurrentPlayer == player1.value ? player2.value : player1.value;
+      sortCurrentPlayer = (sortCurrentPlayer == player1.value) ? player2.value : player1.value;
       currentPlayer.innerHTML = sortCurrentPlayer;
     }, 0);
 
     showHandles();
     checkountVictorys();
   } else {
-    soundError.play();
-    setTimeout(() => {
-      soundError.pause();
-      soundError.currentTime = 0;
-    }, 1000);
+    playErrorSound();
   }
 };
 
+const playErrorSound = () => {
+  soundError.play();
+  setTimeout(() => {
+    soundError.pause();
+    soundError.currentTime = 0;
+  }, 1000);
+};
+
 const checkountVictorys = () => {
-  let empy = "";
+  let empty = "";
 
   if (
     allElementsInSomeLine() ||
     allElementsInSomeColumn() ||
     allElementsInSomeDiagonal()
   ) {
-    setTimeout(() => {
-      printVictory(sortCurrentPlayer, victory);
-    }, 500);
+    setTimeout(() => printVictory(sortCurrentPlayer, victory), 500);
   } else if (arrayIsFilled()) {
-    setTimeout(() => {
-      printVictory(empy, draw);
-    }, 500);
+    setTimeout(() => printVictory(empty, draw), 500);
   }
 };
 
-const arrayIsFilled = () => {
-  let numberFilled = 0;
-  for (let x = 0; x < arrayHandles.length; x++) {
-    if (arrayHandles[x] != undefined) {
-      numberFilled++;
-    }
-  }
-  return numberFilled == arrayHandles.length;
-};
+const arrayIsFilled = () => arrayHandles.filter(element => element !== undefined).length === arrayHandles.length;
 
 const allElementsInSomeLine = () => {
   for (let i = 0; i < 7; i += 3) {
-    if (
-      arrayHandles[i] == player1.value &&
-      arrayHandles[i + 1] == player1.value &&
-      arrayHandles[i + 2] == player1.value
-    ) {
-      return true;
-    }
-    if (
-      arrayHandles[i] == player2.value &&
-      arrayHandles[i + 1] == player2.value &&
-      arrayHandles[i + 2] == player2.value
-    ) {
-      return true;
-    }
+    if (isVictoryCombination(i, i + 1, i + 2)) return true;
   }
+  return false;
 };
 
 const allElementsInSomeColumn = () => {
-  for (var i = 0; i < 3; i++) {
-    if (
-      arrayHandles[i] == player1.value &&
-      arrayHandles[i + 3] == player1.value &&
-      arrayHandles[i + 6] == player1.value
-    ) {
-      return true;
-    }
-    if (
-      arrayHandles[i] == player2.value &&
-      arrayHandles[i + 3] == player2.value &&
-      arrayHandles[i + 6] == player2.value
-    ) {
-      return true;
-    }
+  for (let i = 0; i < 3; i++) {
+    if (isVictoryCombination(i, i + 3, i + 6)) return true;
   }
+  return false;
 };
 
 const allElementsInSomeDiagonal = () => {
-  if (
-    (arrayHandles[0] == player1.value &&
-      arrayHandles[4] == player1.value &&
-      arrayHandles[8] == player1.value) ||
-    (arrayHandles[2] == player1.value &&
-      arrayHandles[4] == player1.value &&
-      arrayHandles[6] == player1.value)
-  ) {
-    return true;
-  }
-  if (
-    (arrayHandles[0] == player2.value &&
-      arrayHandles[4] == player2.value &&
-      arrayHandles[8] == player2.value) ||
-    (arrayHandles[2] == player2.value &&
-      arrayHandles[4] == player2.value &&
-      arrayHandles[6] == player2.value)
-  ) {
-    return true;
-  }
+  return isVictoryCombination(0, 4, 8) || isVictoryCombination(2, 4, 6);
+};
+
+const isVictoryCombination = (index1, index2, index3) => {
+  return (
+    arrayHandles[index1] == player1.value &&
+    arrayHandles[index2] == player1.value &&
+    arrayHandles[index3] == player1.value
+  ) || (
+    arrayHandles[index1] == player2.value &&
+    arrayHandles[index2] == player2.value &&
+    arrayHandles[index3] == player2.value
+  );
 };
 
 const showHandles = () => {
-  for (let indexY = 0; indexY < arrayHandles.length; indexY++) {
-    printHandles(arrayHandles[indexY], indexY);
-  }
+  arrayHandles.forEach((handle, indexY) => printHandles(handle, indexY));
 };
-
-// -----End Game-----
-// const endGame = () => {
-//   initialize.style.display = "flex";
-//   game.style.display = "none";
-//   exit.style.display = "none";
-//   information.style.display = "none";
-
-//   hour = 0;
-//   minute = 0;
-//   second = 0;
-//   millisecond = 0;
-//   cron = 0;
-
-//   function stopAudioStart() {
-//     music.pause();
-//   }
-//   setInterval(stopAudioStart, 0);
-// };
 
 export { start, startGame };

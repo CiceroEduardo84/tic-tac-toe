@@ -1,3 +1,4 @@
+/* Header */
 header {
   width: 100%;
   position: relative;
@@ -7,7 +8,7 @@ header {
 }
 
 .exit {
-  display: none; /*remove none, add flex*/
+  display: none;
   position: absolute;
   font-size: clamp(1.8rem, 2.5vw, 2.2rem);
   font-weight: 700;
@@ -33,7 +34,7 @@ header {
   width: 100%;
   margin: 1rem 0 0;
   position: absolute;
-  display: none; /*remove none, add flex*/
+  display: none;
   text-align: center;
   font-size: clamp(2rem, 2.5vw, 2.4rem);
   font-weight: 700;
@@ -48,6 +49,7 @@ div .time {
   width: 40%;
 }
 
+/* Media Queries */
 @media (min-width: 768px) {
   .exit {
     font-size: clamp(2rem, 2.5vw, 2.2rem);
@@ -70,6 +72,7 @@ div .time {
 }
 
 @media (min-width: 1024px) {
+  /* Uncomment the following line if you want to adjust padding in larger screens */
   /* header {
     padding: 3rem;
   } */

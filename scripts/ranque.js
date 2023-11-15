@@ -1,4 +1,4 @@
-const initialize = document.querySelector(".containerInitialize");;
+const initialize = document.querySelector(".containerInitialize");
 const ranque = document.querySelector(".containerRanque");
 const exitRanque = document.querySelector(".exitRanque");
 
@@ -9,11 +9,11 @@ function closeRanque() {
 }
 
 function openRanque() {
-  initialize.style.display = "none";
-  ranque.style.display = "block";
-  exitRanque.style.display = "flex";
+    initialize.style.display = "none";
+    ranque.style.display = "block";
+    exitRanque.style.display = "flex";
 
-  exitRanque.addEventListener("click", closeRanque);
+    exitRanque.addEventListener("click", closeRanque);
 }
 
 export { openRanque };
