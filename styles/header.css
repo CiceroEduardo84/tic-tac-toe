@@ -3,19 +3,21 @@ header {
 }
 
 .containerExit {
-  width: 100%;
   display: flex;
   position: absolute;
   top: 2rem;
 }
 
-.exit, .exitRanque, .exitGame {
+.exit,
+.exitRanque,
+.exitGame {
   font-size: clamp(2rem, 2.5vw, 2.4rem);
   font-weight: 700;
   z-index: 2;
 }
 
-.containerTitle, .boxInformation {
+.containerTitle,
+.boxInformation {
   width: 100%;
   position: relative;
 }
@@ -23,7 +25,8 @@ header {
 .boxTitle h1 {
   font-size: clamp(3.2rem, 2.5vw, 3.6rem);
   font-weight: 700;
-  text-shadow: 4px 4px 10px var(--var-bg-shadow-black), -4px -4px 10px var(--var-bg-shadow-white);
+  text-shadow: 4px 4px 10px var(--var-bg-shadow-black),
+    -4px -4px 10px var(--var-bg-shadow-white);
   text-align: center;
   white-space: nowrap;
 }
@@ -40,49 +43,3 @@ header {
   z-index: 2;
 }
 
-
-@media (min-width: 768px) {
-  .exit {
-    font-size: clamp(2rem, 2.5vw, 2.2rem);
-  }
-
-  .containerTitle {
-    max-width: 30rem;
-    margin: 2.5rem auto 3rem;
-  }
-
-  .boxTitle h1 {
-    font-size: clamp(3.2rem, 2.5vw, 3.6rem);
-  }
-
-  .boxInformation {
-    width: 100%;
-    margin: 0 0 0;
-    font-size: clamp(2.2rem, 2.5vw, 2.6rem);
-  }
-}
-
-@media (min-width: 1024px) {
-  /* Uncomment the following line if you want to adjust padding in larger screens */
-  /* header {
-    padding: 3rem;
-  } */
-
-  .exit {
-    font-size: clamp(2.4rem, 2.5vw, 2.6rem);
-  }
-
-  .containerTitle {
-    max-width: 40rem;
-    margin: 4rem auto 4rem;
-  }
-
-  .boxTitle h1 {
-    font-size: clamp(4.2rem, 2.5vw, 4.6rem);
-  }
-
-  .boxInformation {
-    margin: 1rem 0 0;
-    font-size: clamp(2.4rem, 2.5vw, 2.6rem);
-  }
-}
