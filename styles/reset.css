@@ -15,13 +15,11 @@
   --var-bg-color-box: #bfbfbf;
   --var-bg-color-init: #595959;
   --var-bg-color: #737373;
-  
   --var-bg-shadow-white: rgba(191, 191, 191, 0.5);
   --var-bg-shadow-footer: rgba(217, 217, 217, 0.3);
   --var-bg-shadow-black: rgba(0, 0, 0, 0.25);
-  --var-bg-color-victory: rgba(0, 0, 0, 0.30);
+  --var-bg-color-victory: rgba(0, 0, 0, 0.3);
   --highlight-color: rgba(255, 255, 255, 0.2);
-
   --switch-bg-url: url(../styles/images/MoonStars.svg);
 }
 
@@ -31,18 +29,39 @@
   --var-bg-color-box: #bfbfbf;
   --var-bg-color-init: #bfbfbf;
   --var-bg-color: #d9d9d9;
-
   --var-bg-shadow-white: rgba(191, 191, 191, 0.5);
   --var-bg-shadow-footer: rgba(191, 191, 191, 0.5);
   --var-bg-shadow-black: rgba(0, 0, 0, 0.25);
-  --var-bg-color-victory: rgba(0, 0, 0, 0.30);
+  --var-bg-color-victory: rgba(0, 0, 0, 0.3);
   --highlight-color: rgba(255, 255, 255, 0.2);
-
   --switch-bg-url: url(../styles/images/Sun.svg);
 }
 
-body {
+body,
+button,
+input,
+select,
+textarea {
   font-size: 1.6rem;
   font-family: "Pixelify Sans", Arial, sans-serif;
   background: var(--var-bg-color);
+  color: var(--var-font-color);
+  border: none;
+}
+
+body{
+  padding: 2rem;
+}
+
+header, main, footer{
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

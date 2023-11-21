@@ -1,55 +1,46 @@
-/* Header */
 header {
+  padding: 2.4rem 0rem;
+}
+
+.containerExit {
   width: 100%;
-  position: relative;
-  padding: 2rem;
-  color: var(--var-font-color);
-  z-index: 1;
+  display: flex;
+  position: absolute;
+  top: 2rem;
 }
 
 .exit, .exitRanque, .exitGame {
-  display: none;
-  position: absolute;
-  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
-  font-weight: 700;
-  z-index: 2;
-}
-
-.containerTitle {
-  max-width: 30rem;
-  position: relative;
-  margin: 3rem auto 2rem;
-}
-
-.boxTitle h1 {
-  font-size: clamp(3.2rem, 2.5vw, 3.6rem);
-  font-weight: 700;
-  text-shadow: 4px 4px 10px var(--var-bg-shadow-black),
-    -4px -4px 10px var(--var-bg-shadow-white);
-  text-align: center;
-  word-wrap: break-word;
-}
-
-.boxInformation {
-  width: 100%;
-  margin: 1rem 0 0;
-  position: absolute;
-  display: none;
-  text-align: center;
   font-size: clamp(2rem, 2.5vw, 2.4rem);
   font-weight: 700;
   z-index: 2;
 }
 
-.boxInformation div {
-  width: 60%;
+.containerTitle, .boxInformation {
+  width: 100%;
+  position: relative;
 }
 
-div .time {
-  width: 40%;
+.boxTitle h1 {
+  font-size: clamp(3.2rem, 2.5vw, 3.6rem);
+  font-weight: 700;
+  text-shadow: 4px 4px 10px var(--var-bg-shadow-black), -4px -4px 10px var(--var-bg-shadow-white);
+  text-align: center;
+  white-space: nowrap;
 }
 
-/* Media Queries */
+.boxInformation {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  font-size: clamp(2rem, 2.5vw, 2.4rem);
+  font-weight: 700;
+  gap: 5rem;
+  z-index: 2;
+}
+
+
 @media (min-width: 768px) {
   .exit {
     font-size: clamp(2rem, 2.5vw, 2.2rem);
