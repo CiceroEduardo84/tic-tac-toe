@@ -1,32 +1,51 @@
 import { toggleMode } from "./lightDarkMode.js";
-import { openRanque } from "./ranque.js";
+// import { openRanque } from "./ranque.js";
 import { start, startGame } from "./newGame.js";
 
+const html = document.documentElement;
 const mode = document.querySelector("#switch");
-const ranque = document.querySelector(".boxRanque");
-const initGame = document.querySelector(".init");
+// const ranque = document.querySelector(".boxRanque");
 const player1 = document.querySelector("#player1");
 const player2 = document.querySelector("#player2");
-const parts = Array.from(document.querySelectorAll(`[class^='part']`));
+const newGameButton = document.querySelector(".init");
+const newGameForm = document.querySelector(".formPlayerName");
 
-let value1;
-let value2;
+// const parts = Array.from(document.querySelectorAll(`[class^='part']`));
 
-const verificar = () => {
-  value1 = player1.value.split("");
-  value2 = player2.value.split("");
+let storageMode = localStorage.getItem("@TicTacToe:Mode");
 
-  if (value1.length > 4 || value2.length > 4) {
-    initGame.addEventListener("click", start);
+if (storageMode) {
+  html.className = storageMode;
+}
+
+function validateInput() {
+  if (player1.value == player2.value) {
+    newGameButton.setAttribute("disabled", "true");
+  } else if (player1.value.length >= 3 && player2.value.length >= 3) {
+    newGameButton.removeAttribute("disabled");
+  } else {
+    newGameButton.setAttribute("disabled", "true");
   }
-};
+}
 
-setInterval(() => {
-  verificar();
-}, 1010);
+function handleSubmitNewGame(event) {
+  event.preventDefault();
+  localStorage.setItem(
+    "@TicTacToe:playersNames",
+    JSON.stringify([player1.value, player2.value])
+  );
+  player1.value = "";
+  player2.value = "";
 
-parts.forEach((part, index) => {
-  part.addEventListener("click", () => startGame(index));
-});
+  start();
+}
+
+// ranque.addEventListener("click", openRanque);
 mode.addEventListener("click", toggleMode);
-ranque.addEventListener("click", openRanque);
+player1.addEventListener("input", validateInput);
+player2.addEventListener("input", validateInput);
+newGameForm.addEventListener("submit", handleSubmitNewGame);
+
+// parts.forEach((part, index) => {
+//   part.addEventListener("click", () => startGame(index));
+// });
