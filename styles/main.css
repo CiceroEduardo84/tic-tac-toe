@@ -2,7 +2,7 @@
 .containerInitialize {
   max-width: 40rem;
   height: 25rem;
-  padding: 1rem;
+  padding: 1.2rem;
   margin: auto;
   display: flex; /*remove none add flex*/
   justify-content: start;
@@ -18,14 +18,11 @@
   display: flex;
 }
 
-.boxHeader div {
-  font-size: clamp(1.6rem, 2.5vw, 2rem);
-}
-
 .boxRanque {
   width: 50%;
   display: flex;
   align-items: center;
+  font-size: clamp(2rem, 2.5vw, 2.4rem);
   gap: 0.8rem;
 }
 
@@ -47,11 +44,11 @@
 #switch button {
   width: 2.8rem;
   height: 2.8rem;
+  border-radius: 16px;
   position: absolute;
   top: 50%;
   left: 0;
   background: white var(--switch-bg-url) no-repeat center;
-  border-radius: 16px;
   transform: translateY(-50%);
   z-index: 1;
   animation: slide-in 0.2s;
@@ -70,7 +67,7 @@
   height: 2rem;
   display: block;
   border: 2px solid var(--var-bg-color);
-  border-radius: 12px;
+  border-radius: 16px;
   background: var(--var-bg-color-init);
   box-shadow: inset 4px 4px 8px var(--var-bg-color),
     inset -4px -4px 4px var(--var-bg-shadow-black);
@@ -78,9 +75,7 @@
 
 /* Players */
 .boxPlayersName {
-  width: 100%;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .boxPlayersName span {
@@ -91,7 +86,6 @@
   width: 40%;
   color: var(--var-font-color);
   font-size: clamp(2rem, 2.5vw, 2.4rem);
-  background-color: transparent;
   border-bottom: solid 2px var(--var-font-color);
 }
 
@@ -102,21 +96,30 @@
 
 .player:focus {
   outline: none;
-  color: var(--var-font-color);
 }
 
 .init {
-  width: 14.8rem;
-  height: 2.8rem;
+  width: 16rem;
+  height: 3.2rem;
   margin-top: 5rem;
-  color: var(--var-font-color);
-  font-family: "Pixelify Sans", Arial, sans-serif;
-  font-size: clamp(1.6rem, 2.5vw, 2rem);
-  background-color: transparent;
+  font-size: clamp(2rem, 2.5vw, 2.4rem);
   border-radius: 12px;
-  box-shadow: 7px 7px 10px var(--var-bg-shadow-black),
-    -7px -7px 10px var(--var-bg-color);
+  box-shadow: 4px 4px 10px var(--var-bg-shadow-black),
+    -4px -4px 10px var(--var-bg-color);
 }
+
+.init:hover {
+  cursor: pointer;
+  filter: brightness(1.1);
+}
+
+.init:disabled {
+  background-color: rgba(50, 50, 50, 0.15);
+  color: #ddd;
+  cursor: not-allowed;
+  filter: none;
+}
+
 
 /* Ranque */
 .containerRanque {

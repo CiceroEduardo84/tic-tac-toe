@@ -6,6 +6,7 @@ header {
   display: flex;
   position: absolute;
   top: 2rem;
+  left: 2rem;
 }
 
 .exit,
