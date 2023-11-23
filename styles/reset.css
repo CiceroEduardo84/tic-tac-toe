@@ -57,6 +57,7 @@ body {
   justify-content: space-between;
   flex-direction: column;
   background: var(--var-bg-color);
+  overflow: hidden;
 }
 
 ul {
