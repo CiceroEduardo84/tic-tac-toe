@@ -16,12 +16,14 @@
 .boxHeader {
   width: 100%;
   display: flex;
+  flex-direction: row;
 }
 
 .boxRanque {
   width: 50%;
   display: flex;
   align-items: center;
+  flex-direction: row;
   font-size: clamp(2rem, 2.5vw, 2.4rem);
   gap: 0.8rem;
 }
@@ -84,7 +86,6 @@
 
 .player {
   width: 40%;
-  color: var(--var-font-color);
   font-size: clamp(2rem, 2.5vw, 2.4rem);
   border-bottom: solid 2px var(--var-font-color);
 }
@@ -106,6 +107,7 @@
   border-radius: 12px;
   box-shadow: 4px 4px 10px var(--var-bg-shadow-black),
     -4px -4px 10px var(--var-bg-color);
+  transition: filter 300ms;
 }
 
 .init:hover {
@@ -119,7 +121,6 @@
   cursor: not-allowed;
   filter: none;
 }
-
 
 /* Ranque */
 .containerRanque {
@@ -169,6 +170,9 @@
   max-width: 40rem;
   margin: auto;
   display: none;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .boxLines {
@@ -228,8 +232,8 @@
 
 /* Victory */
 .containerVictory {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   padding: 2rem;
   position: absolute;
   top: 0;
@@ -274,8 +278,8 @@
   height: 15rem;
   margin: auto;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background: var(--var-bg-color-box);
   border-radius: 5rem 5rem 3rem 3rem;
 }
@@ -296,4 +300,3 @@
   box-shadow: 4px 4px 4px var(--var-bg-shadow-black),
     -4px -4px 8px var(--var-bg-color);
 }
-

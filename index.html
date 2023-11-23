@@ -20,141 +20,143 @@
   </head>
 
   <body>
-    <header>
-      <section class="containerExit">
-        <div class="exit">
-          <p>Sair</p>
-        </div>
-      </section>
+    <div class="container">
+      <header>
+        <section class="containerExit">
+          <div class="exit">
+            <p>Sair</p>
+          </div>
+        </section>
 
-      <section class="containerTitle">
-        <div class="boxTitle">
-          <h1>JOGO DA VELHA</h1>
-        </div>
+        <section class="containerTitle">
+          <div class="boxTitle">
+            <h1>JOGO DA VELHA</h1>
+          </div>
 
-        <div class="boxInformation">
-          <div>Vez: <span id="currentPlayer">Jogador 1</span></div>
-          <div class="time">00:00:00</div>
-        </div>
-      </section>
-    </header>
+          <div class="boxInformation">
+            <div>Vez: <span id="currentPlayer">Jogador 1</span></div>
+            <div class="time">00:00:00</div>
+          </div>
+        </section>
+      </header>
 
-    <main>
-      <article>
-        <section class="containerInitialize">
-          <div class="boxHeader">
-            <div class="boxRanque">
-              <img src="./styles/images/ranque.png" alt="Troféu" />
-              <span>Ranque</span>
-            </div>
+      <main>
+        <article>
+          <section class="containerInitialize">
+            <div class="boxHeader">
+              <div class="boxRanque">
+                <img src="./styles/images/ranque.png" alt="Troféu" />
+                <span>Ranque</span>
+              </div>
 
-            <div class="boxSwitch">
-              <div id="switch">
-                <button></button>
-                <span></span>
+              <div class="boxSwitch">
+                <div id="switch">
+                  <button></button>
+                  <span></span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="boxPlayersName">
-            <form class="formPlayerName">
-              <input
-                type="text"
-                class="player"
-                id="player1"
-                autocomplete="off"
-                placeholder="Player 1"
-                autofocus
-              />
-              <span>X</span>
-              <input
-                type="text"
-                class="player"
-                id="player2"
-                autocomplete="off"
-                placeholder="Player 2"
-              />
-              <button class="init" disabled>Jogar</button>
-            </form>
-          </div>
-        </section>
+            <div class="boxPlayersName">
+              <form class="formPlayerName">
+                <input
+                  type="text"
+                  class="player"
+                  id="player1"
+                  autocomplete="off"
+                  placeholder="Player 1"
+                  autofocus
+                />
+                <span>X</span>
+                <input
+                  type="text"
+                  class="player"
+                  id="player2"
+                  autocomplete="off"
+                  placeholder="Player 2"
+                />
+                <button class="init" disabled>Jogar</button>
+              </form>
+            </div>
+          </section>
 
-        <section class="containerRanque">
-          <div class="boxTitleRanquePlayers">
-            <table border="1" class="tableRanque">
-              <thead>
-                <tr>
-                  <th>N°</th>
-                  <th>Jogador</th>
-                  <th>Vitórias</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-
-          <div class="boxRanquePlayers">
-            <table border="1" class="tableRanque">
-              <tbody>
-                <tr>
-                  <td>1°</td>
-                  <td>Eduardo</td>
-                  <td>10</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="containerGame">
-          <div class="boxLines">
-            <div class="boxLinesHorizontal">
-              <div class="lineHorizontal"></div>
-              <div class="lineHorizontal"></div>
+          <section class="containerRanque">
+            <div class="boxTitleRanquePlayers">
+              <table border="1" class="tableRanque">
+                <thead>
+                  <tr>
+                    <th>N°</th>
+                    <th>Jogador</th>
+                    <th>Vitórias</th>
+                  </tr>
+                </thead>
+              </table>
             </div>
 
-            <div class="boxLinesVertical">
-              <div class="lineVertical"></div>
-              <div class="lineVertical"></div>
+            <div class="boxRanquePlayers">
+              <table border="1" class="tableRanque">
+                <tbody>
+                  <tr>
+                    <td>1°</td>
+                    <td>Eduardo</td>
+                    <td>10</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </div>
+          </section>
 
-          <div class="boxParts">
-            <table class="tableParts">
-              <thead>
-                <tr>
-                  <td class="part0"></td>
-                  <td class="part1"></td>
-                  <td class="part2"></td>
-                </tr>
-              </thead>
+          <section class="containerGame">
+            <div class="boxLines">
+              <div class="boxLinesHorizontal">
+                <div class="lineHorizontal"></div>
+                <div class="lineHorizontal"></div>
+              </div>
 
-              <tbody>
-                <tr>
-                  <td class="part3"></td>
-                  <td class="part4"></td>
-                  <td class="part5"></td>
-                </tr>
-              </tbody>
+              <div class="boxLinesVertical">
+                <div class="lineVertical"></div>
+                <div class="lineVertical"></div>
+              </div>
+            </div>
 
-              <tfoot>
-                <tr>
-                  <td class="part6"></td>
-                  <td class="part7"></td>
-                  <td class="part8"></td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-        </section>
-      </article>
-    </main>
+            <div class="boxParts">
+              <table class="tableParts">
+                <thead>
+                  <tr>
+                    <td class="part0"></td>
+                    <td class="part1"></td>
+                    <td class="part2"></td>
+                  </tr>
+                </thead>
 
-    <footer>
-      <div class="copyright">
-        <a href="https://github.com/CiceroEduardo24" target="_blank">
-          <strong> &copy;Cicero Eduardo</strong>
-        </a>
-      </div>
-    </footer>
+                <tbody>
+                  <tr>
+                    <td class="part3"></td>
+                    <td class="part4"></td>
+                    <td class="part5"></td>
+                  </tr>
+                </tbody>
+
+                <tfoot>
+                  <tr>
+                    <td class="part6"></td>
+                    <td class="part7"></td>
+                    <td class="part8"></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </section>
+        </article>
+      </main>
+
+      <footer>
+        <div class="copyright">
+          <a href="https://github.com/CiceroEduardo24" target="_blank">
+            <strong> &copy;Cicero Eduardo</strong>
+          </a>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

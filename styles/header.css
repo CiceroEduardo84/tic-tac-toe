@@ -1,9 +1,8 @@
 header {
-  padding: 2.4rem 0rem;
+  padding: 2.8rem 0rem;
 }
 
 .containerExit {
-  display: flex;
   position: absolute;
   top: 2rem;
   left: 2rem;
@@ -12,6 +11,7 @@ header {
 .exit,
 .exitRanque,
 .exitGame {
+  display: none;
   font-size: clamp(2rem, 2.5vw, 2.4rem);
   font-weight: 700;
   z-index: 2;
@@ -34,7 +34,8 @@ header {
 
 .boxInformation {
   margin-top: 1rem;
-  display: flex;
+  position: absolute;
+  display: none;
   justify-content: center;
   flex-direction: row;
   text-align: center;
