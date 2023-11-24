@@ -40,7 +40,8 @@ function themeMode() {
   }
 }
 
-setTimeout(() => themeMode(), 0);
+themeMode();
+
 ranque.addEventListener("click", openRanque);
 mode.addEventListener("click", toggleMode);
 player1.addEventListener("input", validateInput);
