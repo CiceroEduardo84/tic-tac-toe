@@ -34,6 +34,14 @@ function handleSubmitNewGame(event) {
   start();
 }
 
+function Keys(event) {
+  event.key === "Enter"
+    ? newGameForm.addEventListener("submit", handleSubmitNewGame)
+    : 0;
+  event.key === "l" ? toggleMode() : 0;
+  event.key === "r" ? openRanque() : 0;
+}
+
 function themeMode() {
   if (storageMode) {
     html.className = storageMode;
@@ -47,6 +55,7 @@ mode.addEventListener("click", toggleMode);
 player1.addEventListener("input", validateInput);
 player2.addEventListener("input", validateInput);
 newGameForm.addEventListener("submit", handleSubmitNewGame);
+html.addEventListener("keypress", Keys);
 parts.forEach((part, index) => {
   part.addEventListener("click", () => startGame(index));
 });

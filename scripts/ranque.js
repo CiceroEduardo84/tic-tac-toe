@@ -1,6 +1,7 @@
 const initialize = document.querySelector(".containerInitialize");
 const ranque = document.querySelector(".containerRanque");
 const exitRanque = document.querySelector(".exit");
+const html = document.documentElement;
 
 function closeRanque() {
   initialize.style.display = "flex";
@@ -18,6 +19,9 @@ function openRanque() {
   exitRanque.classList.add("exitRanque");
 
   exitRanque.addEventListener("click", closeRanque);
+  html.addEventListener("keypress", (event) => {
+    event.key === "s" ? closeRanque() : 0;
+  });
 }
 
 export { openRanque };
