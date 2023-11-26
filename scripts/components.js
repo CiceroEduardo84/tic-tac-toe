@@ -4,11 +4,11 @@ let reloadWindow;
 let part;
 let victory;
 
-function printPart(showPart, X) {
+function printPart(showPart,players, X) {
   part = document.querySelector(`.part${X}`);
   part.innerHTML = "";
 
-  if (showPart == player1.value) {
+  if (showPart == players[0]) {
     part.innerHTML += `
       <img
         src="./styles/images/Xis-darckMode.svg"
@@ -16,7 +16,7 @@ function printPart(showPart, X) {
         class="part"
       />
     `;
-  } else if (showPart == player2.value) {
+  } else if (showPart == players[1]) {
     part.innerHTML += `
       <img
         src="./styles/images/Bolinha-darckMode.svg"

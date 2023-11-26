@@ -6,21 +6,14 @@ const ranque = document.querySelector(".containerRanque");
 const information = document.querySelector(".boxInformation");
 const game = document.querySelector(".containerGame");
 const currentPlayer = document.querySelector("#currentPlayer");
-const player1 = document.querySelector("#player1");
-const player2 = document.querySelector("#player2");
 const timeGame = document.querySelector(".time");
 const exit = document.querySelector(".exit");
 
-// Audio Elements
 const music = new Audio("./styles/audio/fundo.mp3");
 const soundError = new Audio("./styles/audio/erro.mp3");
-
-// Game Variables
 const arrayParts = new Array(9);
-const players = [player1, player2];
-const draw = "Empate!";
-const victory = "Vencedor";
 
+let players;
 let sortCurrentPlayer;
 let hour = 0;
 let minute = 0;
@@ -35,20 +28,19 @@ const start = () => {
   game.style.display = "flex";
   exit.style.display = "block";
   information.style.display = "flex";
+  players = JSON.parse(localStorage.getItem("@TicTacToe:playersNames"));
 
   function sortPlayer() {
-    sortCurrentPlayer = players[Math.floor(Math.random() * 2)].value;
+    sortCurrentPlayer = players[Math.floor(Math.random() * 2)];
     currentPlayer.innerHTML = sortCurrentPlayer;
   }
-
-  cron = setInterval(() => showTime(), 10);
 
   if (!sortCurrentPlayer) {
     setTimeout(sortPlayer, 0);
   }
 
+  cron = setInterval(() => showTime(), 10);
   setInterval(() => music.play(), 100);
-
   exit.addEventListener("click", exitGame);
 };
 
@@ -94,14 +86,12 @@ const startGame = (y) => {
   if (!arrayParts[y]) {
     arrayParts[y] = sortCurrentPlayer;
 
-    setTimeout(() => {
-      sortCurrentPlayer =
-        sortCurrentPlayer == player1.value ? player2.value : player1.value;
-      currentPlayer.innerHTML = sortCurrentPlayer;
-    }, 0);
-
     showParts();
     checkountVictorys();
+
+    sortCurrentPlayer =
+      sortCurrentPlayer == players[0] ? players[1] : players[0];
+    currentPlayer.innerHTML = sortCurrentPlayer;
   } else {
     playErrorSound();
   }
@@ -116,6 +106,8 @@ const playErrorSound = () => {
 };
 
 const checkountVictorys = () => {
+  const draw = "Empate!";
+  const victory = "Vencedor";
   let empty = "";
 
   if (
@@ -123,9 +115,9 @@ const checkountVictorys = () => {
     allElementsInSomeColumn() ||
     allElementsInSomeDiagonal()
   ) {
-    setTimeout(() => printVictory(sortCurrentPlayer, victory), 500);
+    printVictory(sortCurrentPlayer, victory);
   } else if (arrayIsFilled()) {
-    setTimeout(() => printVictory(empty, draw), 500);
+    printVictory(empty, draw);
   }
 };
 
@@ -153,17 +145,17 @@ const allElementsInSomeDiagonal = () => {
 
 const isVictoryCombination = (index1, index2, index3) => {
   return (
-    (arrayParts[index1] == player1.value &&
-      arrayParts[index2] == player1.value &&
-      arrayParts[index3] == player1.value) ||
-    (arrayParts[index1] == player2.value &&
-      arrayParts[index2] == player2.value &&
-      arrayParts[index3] == player2.value)
+    (arrayParts[index1] == players[0] &&
+      arrayParts[index2] == players[0] &&
+      arrayParts[index3] == players[0]) ||
+    (arrayParts[index1] == players[1] &&
+      arrayParts[index2] == players[1] &&
+      arrayParts[index3] == players[1])
   );
 };
 
 const showParts = () => {
-  arrayParts.forEach((part, indexY) => printPart(part, indexY));
+  arrayParts.forEach((part, indexY) => printPart(part, players, indexY));
 };
 
 // -----End Game-----
