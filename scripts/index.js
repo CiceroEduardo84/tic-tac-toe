@@ -1,6 +1,6 @@
 import { toggleMode } from "./lightDarkMode.js";
 import { openRanque } from "./ranque.js";
-import { start, startGame } from "./newGame.js";
+import { start, currentGame } from "./newGame.js";
 
 function validateInput() {
   if (player1.value == player2.value) {
@@ -51,7 +51,7 @@ player2.addEventListener("input", validateInput);
 newGameForm.addEventListener("submit", handleSubmitNewGame);
 html.addEventListener("keydown", Keys);
 parts.forEach((part, index) => {
-  part.addEventListener("click", () => startGame(index));
+  part.addEventListener("click", () => currentGame(index));
 });
 
 themeMode();

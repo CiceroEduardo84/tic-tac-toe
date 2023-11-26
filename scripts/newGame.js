@@ -82,7 +82,7 @@ const exitGame = () => {
 };
 
 // -----Game-----
-const startGame = (y) => {
+const currentGame = (y) => {
   if (!arrayParts[y]) {
     arrayParts[y] = sortCurrentPlayer;
 
@@ -169,4 +169,4 @@ const endGame = () => {
   window.location.reload(true);
 };
 
-export { start, startGame, endGame };
+export { start, currentGame, endGame };
