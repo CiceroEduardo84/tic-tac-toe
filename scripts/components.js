@@ -29,7 +29,7 @@ function printPart(showPart,players, X) {
 
 function printVictory(player, phrase) {
   victory = document.querySelector("article");
-  victory.innerHTML = `        
+  victory.innerHTML += `        
     <section class="containerVictory">
       <div class="boxVictory">
         <div class="backgroundVictory">
