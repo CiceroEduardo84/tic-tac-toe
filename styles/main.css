@@ -24,12 +24,12 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  font-size: clamp(2rem, 2.5vw, 2.4rem);
+  font-size: clamp(2rem, 2vw, 2.4rem);
   gap: 0.8rem;
 }
 
 .boxRanque img {
-  width: clamp(2rem, 2.5vw, 2.4rem);
+  width: clamp(2rem, 2vw, 2.4rem);
 }
 
 .boxSwitch {
@@ -86,7 +86,7 @@
 
 .player {
   width: 40%;
-  font-size: clamp(2rem, 2.5vw, 2.4rem);
+  font-size: clamp(2rem, 2vw, 2.4rem);
   border-bottom: solid 2px var(--var-font-color);
 }
 
@@ -103,7 +103,7 @@
   width: 16rem;
   height: 3.2rem;
   margin-top: 5rem;
-  font-size: clamp(2rem, 2.5vw, 2.4rem);
+  font-size: clamp(2rem, 2vw, 2.4rem);
   border-radius: 12px;
   box-shadow: 4px 4px 10px var(--var-bg-shadow-black),
     -4px -4px 10px var(--var-bg-color);
@@ -158,6 +158,7 @@
 
 .tableRanque tr th {
   background-color: var(--var-bg-color);
+  /* text-shadow: px 0px 2px black; */
 }
 
 .tableRanque tr td,
@@ -172,7 +173,6 @@
   display: none;
   justify-content: center;
   align-items: center;
-
 }
 
 .boxLines {
@@ -285,7 +285,7 @@
 }
 
 .playerVictory p {
-  font-size: clamp(2.8rem, 2.5vw, 3.2rem);
+  font-size: clamp(2.8rem, 2vw, 3.2rem);
   text-align: center;
 }
 
@@ -303,26 +303,56 @@
 
 @media (min-width: 768px) {
   /* Start */
-.containerInitialize {
-  padding: 1.6rem;
-}
+  .containerInitialize {
+    padding: 1.6rem;
+  }
 
-.boxRanque {
-  font-size: clamp(2.4rem, 2.5vw, 2.8rem);
-  gap: 1.2rem;
-}
+  .boxRanque {
+    font-size: clamp(2.4rem, 2vw, 2.8rem);
+    gap: 1.2rem;
+  }
 
-.boxRanque img {
-  width: clamp(2.4rem, 2.5vw, 2.8rem);
-}
+  .boxRanque img {
+    width: clamp(2.4rem, 2vw, 2.8rem);
+  }
 
-/* Players */
-.player {
-  font-size: clamp(2.4rem, 2.5vw, 2.8rem);
-}
+  /* Players */
+  .player {
+    font-size: clamp(2.4rem, 2vw, 2.8rem);
+  }
 
-.init {
-  margin-top: 4rem;
-  font-size: clamp(2.4rem, 2.5vw, 2.8rem);
-}
+  .init {
+    margin-top: 4rem;
+    font-size: clamp(2.4rem, 2vw, 2.8rem);
+  }
+
+  /* Ranque */
+  .containerRanque {
+    padding: 1.4rem;
+  }
+
+  .tableRanque tr td,
+  .tableRanque tr th {
+    width: 33%;
+    font-size: clamp(2rem, 2vw, 2.4rem);
+  }
+
+  /* Victory */
+  .containerVictory {
+    padding: 2.4rem;
+  }
+
+  .boxVictory {
+    padding: 2.4rem;
+    top: 15rem;
+  }
+
+  .backgroundVictory {
+    padding: 1.2rem;
+  }
+
+  .reloadWindow {
+    bottom: 2.4rem;
+    right: 2.4rem;
+  }
 }

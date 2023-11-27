@@ -11,7 +11,7 @@ header {
 .exit,
 .exitRanque,
 .exitGame {
-  display: flex;
+  display: none;
   font-size: clamp(2rem, 2.5vw, 2.4rem);
   font-weight: 700;
   z-index: 2;
@@ -35,7 +35,7 @@ header {
 .boxInformation {
   margin-top: 1rem;
   position: absolute;
-  display: flex;
+  display: none;
   justify-content: center;
   flex-direction: row;
   text-align: center;
