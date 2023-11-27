@@ -17,3 +17,17 @@ footer {
   display: block;
   text-align: center;
 }
+
+@media (min-width: 768px){
+  footer {
+    padding: 3.2rem 0;
+  }
+  
+  .copyright {
+    font-size: clamp(2.4rem, 2.5vw, 2.8rem);
+  }
+  
+  .copyright a {
+    padding: 2.4rem;
+  }
+}

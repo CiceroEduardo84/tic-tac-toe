@@ -300,3 +300,29 @@
   box-shadow: 4px 4px 4px var(--var-bg-shadow-black),
     -4px -4px 8px var(--var-bg-color);
 }
+
+@media (min-width: 768px) {
+  /* Start */
+.containerInitialize {
+  padding: 1.6rem;
+}
+
+.boxRanque {
+  font-size: clamp(2.4rem, 2.5vw, 2.8rem);
+  gap: 1.2rem;
+}
+
+.boxRanque img {
+  width: clamp(2.4rem, 2.5vw, 2.8rem);
+}
+
+/* Players */
+.player {
+  font-size: clamp(2.4rem, 2.5vw, 2.8rem);
+}
+
+.init {
+  margin-top: 4rem;
+  font-size: clamp(2.4rem, 2.5vw, 2.8rem);
+}
+}

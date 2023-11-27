@@ -11,7 +11,7 @@ header {
 .exit,
 .exitRanque,
 .exitGame {
-  display: none;
+  display: flex;
   font-size: clamp(2rem, 2.5vw, 2.4rem);
   font-weight: 700;
   z-index: 2;
@@ -35,7 +35,7 @@ header {
 .boxInformation {
   margin-top: 1rem;
   position: absolute;
-  display: none;
+  display: flex;
   justify-content: center;
   flex-direction: row;
   text-align: center;
@@ -45,3 +45,33 @@ header {
   z-index: 2;
 }
 
+@media (min-width: 768px) {
+  header {
+    padding: 3.2rem 0rem;
+  }
+  
+  .containerExit {
+    top: 2.8rem;
+    left: 2.8rem;
+  }
+  
+  .exit,
+  .exitRanque,
+  .exitGame {
+    font-size: clamp(2.4rem, 2.5vw, 2.8rem);
+  }
+  
+  .containerTitle,
+  .boxInformation {
+    width: 100%;
+  }
+  
+  .boxTitle h1 {
+    font-size: clamp(4rem, 2.5vw, 4.4rem);
+  }
+  
+  .boxInformation {
+    font-size: clamp(2.4rem, 2.5vw, 2.8rem);
+    gap: 6rem;
+  }
+}
