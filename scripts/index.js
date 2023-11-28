@@ -23,9 +23,21 @@ function handleSubmitNewGame(event) {
   start();
 }
 
-function Keys(event) {
-  event.key === "Enter" ? handleSubmitNewGame() : 0;
-  event.altKey && event.key === "m" ? toggleMode() : 0;
+function clickParts() {
+  const parts = Array.from(document.querySelectorAll(".tableParts td"));
+
+  parts.forEach((part, index) => {
+    part.addEventListener("click", () => currentGame(index));
+  });
+}
+
+function keyboardShortcuts() {
+  html.addEventListener("keydown", (event) => {
+    event.altKey && event.key === "r" ? openRanque(html) : 0;
+  },false);
+  html.addEventListener("keydown", (event) => {
+    event.altKey && event.key === "m" ? toggleMode() : 0;
+  });
 }
 
 function themeMode() {
@@ -41,7 +53,6 @@ const player1 = document.querySelector("#player1");
 const player2 = document.querySelector("#player2");
 const newGameButton = document.querySelector(".init");
 const newGameForm = document.querySelector(".formPlayerName");
-const parts = Array.from(document.querySelectorAll(`[class^='part']`));
 let storageMode = localStorage.getItem("@TicTacToe:Mode");
 
 ranque.addEventListener("click", openRanque);
@@ -49,9 +60,7 @@ mode.addEventListener("click", toggleMode);
 player1.addEventListener("input", validateInput);
 player2.addEventListener("input", validateInput);
 newGameForm.addEventListener("submit", handleSubmitNewGame);
-html.addEventListener("keydown", Keys);
-parts.forEach((part, index) => {
-  part.addEventListener("click", () => currentGame(index));
-});
 
+keyboardShortcuts();
 themeMode();
+clickParts();
