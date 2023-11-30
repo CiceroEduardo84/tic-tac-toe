@@ -22,7 +22,7 @@ let millisecond = 0;
 let cron;
 
 // -----Start Game-----
-const start = () => {
+const startGame = () => {
   initialize.style.display = "none";
   ranque.style.display = "none";
   game.style.display = "flex";
@@ -77,7 +77,7 @@ const exitGame = () => {
     music.pause();
     endGame();
   } else {
-    start();
+    startGame();
   }
 };
 
@@ -169,4 +169,4 @@ const endGame = () => {
   window.location.reload(true);
 };
 
-export { start, currentGame, endGame };
+export const gameFunctions = { startGame, currentGame, endGame, showParts };

@@ -1,4 +1,4 @@
-import { start, currentGame } from "./newGame.js";
+import { gameFunctions } from "./newGame.js";
 import { openRanque } from "./ranque.js";
 
 function validateInput() {
@@ -20,20 +20,21 @@ function handleSubmitNewGame(event) {
   );
   player1.value = "";
   player2.value = "";
-  start();
+  gameFunctions.startGame();
 }
 
 function clickParts() {
   const parts = Array.from(document.querySelectorAll(".tableParts td"));
 
   parts.forEach((part, index) => {
-    part.addEventListener("click", () => currentGame(index));
+    part.addEventListener("click", () => gameFunctions.currentGame(index));
   });
 }
 
 function toggleMode() {
   html.classList.toggle("light-mode");
   localStorage.setItem("@TicTacToe:Mode", html.className);
+  gameFunctions.showParts();
 }
 
 function keyboardShortcuts(event) {
