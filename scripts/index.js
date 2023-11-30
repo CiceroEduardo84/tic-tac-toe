@@ -61,12 +61,12 @@ const newGameForm = document.querySelector(".formPlayerName");
 let storageMode = localStorage.getItem("@TicTacToe:Mode");
 let activePageIsContainerInitialize = true;
 
+html.addEventListener("keydown", keyboardShortcuts);
 ranque.addEventListener("click", openRanque);
 mode.addEventListener("click", toggleMode);
 player1.addEventListener("input", validateInput);
 player2.addEventListener("input", validateInput);
 newGameForm.addEventListener("submit", handleSubmitNewGame);
-html.addEventListener("keydown", keyboardShortcuts);
 
 clickParts();
 themeMode();
