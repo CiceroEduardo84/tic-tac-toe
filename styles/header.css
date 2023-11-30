@@ -17,6 +17,13 @@ header {
   z-index: 2;
 }
 
+.exit:hover,
+.exitGame:hover,
+.exitRanque:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .containerTitle,
 .boxInformation {
   width: 100%;
@@ -49,27 +56,27 @@ header {
   header {
     padding: 3.2rem 0rem;
   }
-  
+
   .containerExit {
     top: 2.8rem;
     left: 2.8rem;
   }
-  
+
   .exit,
   .exitRanque,
   .exitGame {
     font-size: clamp(2.4rem, 2.5vw, 2.8rem);
   }
-  
+
   .containerTitle,
   .boxInformation {
     width: 100%;
   }
-  
+
   .boxTitle h1 {
     font-size: clamp(4rem, 2.5vw, 4.4rem);
   }
-  
+
   .boxInformation {
     font-size: clamp(2.4rem, 2.5vw, 2.8rem);
     gap: 6rem;
