@@ -9,8 +9,8 @@ const currentPlayer = document.querySelector("#currentPlayer");
 const timeGame = document.querySelector(".time");
 const exit = document.querySelector(".exit");
 
-const music = new Audio("./styles/audio/fundo.mp3");
-const soundError = new Audio("./styles/audio/erro.mp3");
+const music = new Audio("./audio/fundo.mp3");
+const soundError = new Audio("./audio/erro.mp3");
 const arrayParts = new Array(9);
 
 let players;

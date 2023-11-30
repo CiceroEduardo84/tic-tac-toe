@@ -7,7 +7,7 @@ function printPart(showPart, players, X) {
   if (showPart == players[0]) {
     part.innerHTML += `
       <img
-        src="./styles/images/Xis-darckMode.svg"
+        src="./images/Xis-darckMode.svg"
         alt=""
         class="part"
       />
@@ -15,7 +15,7 @@ function printPart(showPart, players, X) {
   } else if (showPart == players[1]) {
     part.innerHTML += `
       <img
-        src="./styles/images/Bolinha-darckMode.svg"
+        src="./images/Bolinha-darckMode.svg"
         alt=""
         class="part"
       />
@@ -32,7 +32,7 @@ function printVictory(player, phrase) {
     <section class="containerVictory">
       <div class="boxVictory">
         <div class="backgroundVictory">
-          <img src="./styles/images/stars.svg" alt="" />
+          <img src="./images/stars.svg" alt="" />
           <div class="playerVictory">
             <p>${phrase} ${player}!</p>
           </div>
