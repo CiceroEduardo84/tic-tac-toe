@@ -41,10 +41,10 @@ function keyboardShortcuts(event) {
   if (activePageIsContainerInitialize) {
     if (openRanqueShortcuts) {
       openRanqueShortcuts = false;
-      event.altKey && event.key === "w" ? rank.openRanque() : 0;
+      event.altKey && event.key === "r" ? rank.openRanque() : 0;
     } else {
       openRanqueShortcuts = true;
-      event.altKey && event.key === "w" ? rank.closeRanque() : 0;
+      event.altKey && event.key === "r" ? rank.closeRanque() : 0;
     }
   }
   event.altKey && event.key === "m" ? toggleMode() : 0;
