@@ -1,7 +1,3 @@
-const initialize = document.querySelector(".containerInitialize");
-const ranque = document.querySelector(".containerRanque");
-const exitRanque = document.querySelector(".exit");
-
 function closeRanque() {
   initialize.style.display = "flex";
   ranque.style.display = "none";
@@ -19,5 +15,9 @@ function openRanque() {
 
   exitRanque.addEventListener("click", closeRanque);
 }
+
+const initialize = document.querySelector(".containerInitialize");
+const ranque = document.querySelector(".containerRanque");
+const exitRanque = document.querySelector(".exit");
 
 export const rank = { openRanque, closeRanque };
