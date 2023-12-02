@@ -1,5 +1,5 @@
 import { gameFunctions } from "./newGame.js";
-import { openRanque } from "./ranque.js";
+import { rank } from "./ranque.js";
 
 function validateInput() {
   if (player1.value == player2.value) {
@@ -39,7 +39,13 @@ function toggleMode() {
 
 function keyboardShortcuts(event) {
   if (activePageIsContainerInitialize) {
-    event.altKey && event.key === "r" ? openRanque() : 0;
+    if (openRanqueShortcuts) {
+      openRanqueShortcuts = false;
+      event.altKey && event.key === "w" ? rank.openRanque() : 0;
+    } else {
+      openRanqueShortcuts = true;
+      event.altKey && event.key === "w" ? rank.closeRanque() : 0;
+    }
   }
   event.altKey && event.key === "m" ? toggleMode() : 0;
 }
@@ -60,9 +66,10 @@ const newGameForm = document.querySelector(".formPlayerName");
 
 let storageMode = localStorage.getItem("@TicTacToe:Mode");
 let activePageIsContainerInitialize = true;
+let openRanqueShortcuts = true;
 
 html.addEventListener("keydown", keyboardShortcuts);
-ranque.addEventListener("click", openRanque);
+ranque.addEventListener("click", rank.openRanque);
 mode.addEventListener("click", toggleMode);
 player1.addEventListener("input", validateInput);
 player2.addEventListener("input", validateInput);

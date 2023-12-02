@@ -20,4 +20,4 @@ function openRanque() {
   exitRanque.addEventListener("click", closeRanque);
 }
 
-export { openRanque };
+export const rank = { openRanque, closeRanque };
