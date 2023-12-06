@@ -14,7 +14,7 @@ function startGame() {
   players = JSON.parse(localStorage.getItem("@TicTacToe:playersNames"));
 
   if (!sortCurrentPlayer) {
-    setTimeout(sortPlayer, 0);
+    sortPlayer();
   }
 
   music.loop = true;
@@ -23,6 +23,7 @@ function startGame() {
   showTime();
 }
 
+// Logica do tempo dar 1 hr
 function showTime() {
   finishTimerInterval = setInterval(() => {
     const dateNow = new Date();
@@ -41,6 +42,22 @@ function endGame() {
   exit.style.display = "none";
   information.style.display = "none";
 
+  if (saveGame) {
+    const userData = {
+      name: sortCurrentPlayer,
+      victory: 1,
+    };
+
+    const storageRank = JSON.parse(localStorage.getItem("@tictactoe:rank"));
+
+    if (storageRank) {
+      const rankData = [...storageRank, userData];
+      localStorage.setItem("@tictactoe:rank", JSON.stringify(rankData));
+    } else {
+      localStorage.setItem("@tictactoe:rank", JSON.stringify([userData]));
+    }
+  }
+
   window.location.reload(true);
 }
 
@@ -50,6 +67,7 @@ function exitGame() {
 
   if (conf) {
     music.pause();
+    saveGame = false;
     endGame();
   } else {
     startGame();
@@ -105,9 +123,11 @@ function checkountVictorys() {
     allElementsInSomeDiagonal()
   ) {
     printVictory(sortCurrentPlayer, victory);
+    return true;
   } else if (arrayIsFilled()) {
     printVictory(empty, draw);
   }
+  return false;
 }
 
 function currentGame(y) {
@@ -115,11 +135,11 @@ function currentGame(y) {
     arrayParts[y] = sortCurrentPlayer;
 
     showParts();
-    checkountVictorys();
-
-    sortCurrentPlayer =
-      sortCurrentPlayer == players[0] ? players[1] : players[0];
-    currentPlayer.innerHTML = sortCurrentPlayer;
+    if (!checkountVictorys()) {
+      sortCurrentPlayer =
+        sortCurrentPlayer == players[0] ? players[1] : players[0];
+      currentPlayer.innerHTML = sortCurrentPlayer;
+    }
   } else {
     soundError.play();
   }
@@ -142,5 +162,7 @@ let sortCurrentPlayer;
 
 const initialDateTime = new Date();
 let finishTimerInterval;
+
+let saveGame = true;
 
 export const gameFunctions = { startGame, currentGame, endGame, showParts };
