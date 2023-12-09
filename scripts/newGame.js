@@ -23,15 +23,22 @@ function startGame() {
   showTime();
 }
 
-// Logica do tempo dar 1 hr
 function showTime() {
   finishTimerInterval = setInterval(() => {
     const dateNow = new Date();
     const dateDiff = new Date(dateNow - initialDateTime);
     const minutes = String(dateDiff.getMinutes()).padStart("2", "0");
     const seconds = String(dateDiff.getSeconds()).padStart("2", "0");
+    const hours = dateDiff.getSeconds() + dateDiff.getMinutes();
 
-    timeGame.innerHTML = `${minutes}:${seconds}`;
+    if (hours == 0) {
+      clearInterval(finishTimerInterval);
+      alert("Tempo esgotado!");
+      saveGame = false;
+      endGame();
+    } else {
+      timeGame.innerHTML = `${minutes}:${seconds}`;
+    }
   }, 1000);
 }
 
@@ -52,7 +59,21 @@ function endGame() {
 
     if (storageRank) {
       const rankData = [...storageRank, userData];
-      localStorage.setItem("@tictactoe:rank", JSON.stringify(rankData));
+      const updateRank = rankData.reduce((acc, currentValue) => {
+        const existingPlayer = acc.find(
+          (player) => player.name === currentValue.name
+        );
+
+        if (existingPlayer) {
+          existingPlayer.victory += currentValue.victory;
+        } else {
+          acc.push({ name: currentValue.name, victory: currentValue.victory });
+        }
+
+        return acc;
+      }, []);
+
+      localStorage.setItem("@tictactoe:rank", JSON.stringify(updateRank));
     } else {
       localStorage.setItem("@tictactoe:rank", JSON.stringify([userData]));
     }
