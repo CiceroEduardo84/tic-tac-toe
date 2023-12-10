@@ -17,10 +17,13 @@ function startGame() {
     sortPlayer();
   }
 
+  initialDateTime = new Date();
+  showTime();
+
   music.loop = true;
   music.play();
+
   exit.addEventListener("click", exitGame);
-  showTime();
 }
 
 function showTime() {
@@ -181,7 +184,7 @@ const arrayParts = new Array(9);
 let players;
 let sortCurrentPlayer;
 
-const initialDateTime = new Date();
+let initialDateTime;
 let finishTimerInterval;
 
 let saveGame = true;
