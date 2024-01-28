@@ -3,7 +3,7 @@ import { gameFunctions } from "./newGame.js";
 function themeParts() {
   let theme = localStorage.getItem("@TicTacToe:Mode");
 
-  if (theme == "dark-mode") {
+  if (!theme || theme == "dark-mode") {
     xisMode = "./images/XisDarckMode.svg";
     circleMode = "./images/BolinhaDarckMode.svg";
   } else {
