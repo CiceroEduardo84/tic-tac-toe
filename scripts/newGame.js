@@ -132,8 +132,10 @@ function isVictoryCombination(index1, index2, index3) {
 }
 
 function arrayIsFilled() {
-  arrayParts.filter((element) => element !== undefined).length ===
-    arrayParts.length;
+  return (
+    arrayParts.filter((element) => element !== undefined).length ===
+    arrayParts.length
+  );
 }
 
 function checkountVictorys() {
@@ -150,9 +152,10 @@ function checkountVictorys() {
     return true;
   } else if (arrayIsFilled()) {
     printVictory(empty, draw);
+    saveGame = false;
     return true;
   }
-  
+
   return false;
 }
 
