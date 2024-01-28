@@ -150,7 +150,9 @@ function checkountVictorys() {
     return true;
   } else if (arrayIsFilled()) {
     printVictory(empty, draw);
+    return true;
   }
+  
   return false;
 }
 

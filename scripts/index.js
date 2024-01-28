@@ -75,5 +75,5 @@ player1.addEventListener("input", validateInput);
 player2.addEventListener("input", validateInput);
 newGameForm.addEventListener("submit", handleSubmitNewGame);
 
-clickParts();
 themeMode();
+clickParts();
